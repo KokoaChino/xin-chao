@@ -5,7 +5,7 @@ import { usePreferences } from './hooks/usePreferences';
 import { groupRoster } from './utils/display';
 import type { RosterEntry } from './utils/display';
 import { exportRanking, importRanking, rankingTitle } from './utils/backup';
-import { createRankingPoster, downloadBlob } from './utils/poster';
+import { createRankingPoster, downloadBlob, PosterAssetsError, type PosterProgress, type PosterAssetFailure } from './utils/poster';
 import CatalogGrid from './components/CatalogGrid';
 import RankBoard from './components/RankBoard';
 import CharacterDetail from './components/CharacterDetail';
@@ -14,6 +14,8 @@ import Dialog from './components/Dialog';
 import OfficialVideos from './components/OfficialVideos';
 
 type Modal = 'poster' | 'videos' | 'import' | null;
+const initialPosterProgress = (total: number): PosterProgress => ({ phase: 'preparing', completed: 0, total, message: '正在准备海报', activeAssets: [], unavailableBackgrounds: [] });
+function assetBytes(value: number) { return value >= 1024 * 1024 ? `${(value / 1024 / 1024).toFixed(1)} MB` : `${Math.round(value / 1024)} KB`; }
 export default function App() {
   const catalog = useCatalog(); const pref = usePreferences();
   const [page, setPage] = useState<'ranking' | 'catalog'>('ranking');
@@ -22,9 +24,10 @@ export default function App() {
   const [modal, setModal] = useState<Modal>(null);
   const [toast, setToast] = useState<{ message: string; id: number } | null>(null);
   const [importText, setImportText] = useState(''); const [importName, setImportName] = useState(''); const [importing, setImporting] = useState(false);
-  const [exporting, setExporting] = useState(false); const [exportProgress, setExportProgress] = useState({ done: 0, total: 0 });
-  const [poster, setPoster] = useState<{ blob: Blob; width: number; height: number; previews: { url: string; width: number; height: number }[] } | null>(null);
+  const [exporting, setExporting] = useState(false); const [exportProgress, setExportProgress] = useState<PosterProgress>(() => initialPosterProgress(0));
+  const [poster, setPoster] = useState<{ blob: Blob; width: number; height: number; unavailableBackgrounds: string[]; previews: { url: string; width: number; height: number }[] } | null>(null);
   const [exportTitle, setExportTitle] = useState(''); const [exportError, setExportError] = useState('');
+  const [exportFailures, setExportFailures] = useState<PosterAssetFailure[]>([]);
   const uploadRef = useRef<HTMLInputElement>(null); const toastId = useRef(0); const exportJob = useRef(0); const exportBusy = useRef(false);
   const exportController = useRef<AbortController | null>(null);
   const entries = useMemo(() => groupRoster(catalog.characters, pref.preferences.selectedVariants), [catalog.characters, pref.preferences.selectedVariants]);
@@ -75,19 +78,19 @@ export default function App() {
   const closePoster = () => {
     ++exportJob.current; exportBusy.current = false;
     exportController.current?.abort(); exportController.current = null;
-    setExporting(false); setPoster(null); setExportError(''); setModal(null);
+    setExporting(false); setPoster(null); setExportError(''); setExportFailures([]); setModal(null);
   };
   const createPoster = async () => {
     if (exportBusy.current || !rankedEntries.length) return;
     exportBusy.current = true; const job = ++exportJob.current;
     const controller = new AbortController(); exportController.current = controller;
-    setModal('poster'); setPoster(null); setExportError(''); setExportTitle(title);
-    setExporting(true); setExportProgress({ done: 0, total: rankedEntries.length });
+    setModal('poster'); setPoster(null); setExportError(''); setExportFailures([]); setExportTitle(title);
+    setExporting(true); setExportProgress(initialPosterProgress(rankedEntries.length));
     try {
-      const result = await createRankingPoster(rankedEntries, pref.preferences, (done, total) => { if (job === exportJob.current) setExportProgress({ done, total }); }, controller.signal);
+      const result = await createRankingPoster(rankedEntries, pref.preferences, progress => { if (job === exportJob.current) setExportProgress(progress); }, controller.signal);
       if (job !== exportJob.current) return;
-      setPoster({ blob: result.blob, width: result.width, height: result.height, previews: result.previews.map(preview => ({ url: URL.createObjectURL(preview.blob), width: preview.width, height: preview.height })) });
-    } catch (error) { if (job === exportJob.current) setExportError(error instanceof Error ? error.message : '海报生成失败。'); }
+      setPoster({ blob: result.blob, width: result.width, height: result.height, unavailableBackgrounds: result.unavailableBackgrounds, previews: result.previews.map(preview => ({ url: URL.createObjectURL(preview.blob), width: preview.width, height: preview.height })) });
+    } catch (error) { if (job === exportJob.current) { setExportError(error instanceof Error ? error.message : '海报生成失败。'); setExportFailures(error instanceof PosterAssetsError ? error.failures : []); } }
     finally { if (job === exportJob.current) { exportController.current = null; exportBusy.current = false; setExporting(false); } }
   };
   return <div className="app-shell">
@@ -101,7 +104,7 @@ export default function App() {
     <main id="main-content" className="page-container">
       <section id="ranking-panel" role="tabpanel" aria-labelledby="ranking-tab" hidden={page !== 'ranking'}>
         <Spotlight title={title} character={rankedEntries[0]?.character} onOpen={() => rankedEntries[0] && setSelectedId(rankedEntries[0].character.id)} />
-        <div className="board-toolbar"><span>{rankedEntries.length} 位共鸣者</span><div><button className="button button-outline" disabled={!pref.ready} onClick={backup}><Download size={15} />导出榜单</button><button className="button button-outline" disabled={!pref.ready || catalog.loading} onClick={() => uploadRef.current?.click()}><Upload size={15} />导入榜单</button><button className="button button-dark" onClick={() => void createPoster()} disabled={exporting || !rankedEntries.length}>{exporting ? <LoaderCircle className="spin" size={16} /> : <Image size={16} />}{exporting ? `正在生成 ${exportProgress.done}/${exportProgress.total}` : '分享海报'}</button></div></div>
+        <div className="board-toolbar"><span>{rankedEntries.length} 位共鸣者</span><div><button className="button button-outline" disabled={!pref.ready} onClick={backup}><Download size={15} />导出榜单</button><button className="button button-outline" disabled={!pref.ready || catalog.loading} onClick={() => uploadRef.current?.click()}><Upload size={15} />导入榜单</button><button className="button button-dark" onClick={() => void createPoster()} disabled={exporting || !rankedEntries.length}>{exporting ? <LoaderCircle className="spin" size={16} /> : <Image size={16} />}{exporting ? `正在生成 ${exportProgress.completed}/${exportProgress.total}` : '分享海报'}</button></div></div>
         <RankBoard entries={rankedEntries} ready={pref.ready} onOpen={entry => setSelectedId(entry.character.id)} onReorder={pref.reorder} onRemove={removeFromRank} />
       </section>
       <section id="catalog-panel" role="tabpanel" aria-labelledby="catalog-tab" hidden={page !== 'catalog'}>
@@ -117,13 +120,26 @@ export default function App() {
     {activeCharacter && activeEntry && <CharacterDetail summary={activeCharacter} variants={activeLocked ? [activeEntry.character] : activeEntry.variants} loadCharacter={catalog.getCharacter} onClose={() => setSelectedId(null)} onSelectVariant={id => { if (!activeLocked) { selectVariant(activeEntry.id, id); setSelectedId(id); } }} />}
     {modal === 'import' && <Dialog title="导入榜单" onClose={() => { if (!importing) setModal(null); }}><p className="import-file">{importName}</p><p className="helper-text">导入将替换当前榜单。</p><div className="dialog-actions"><button className="button button-outline" onClick={backup}>先导出当前榜单</button><button className="button button-dark" disabled={importing} onClick={() => void importBackup()}>{importing ? '导入中…' : '确认导入'}</button></div></Dialog>}
     {modal === 'poster' && <Dialog title="海报预览" onClose={closePoster} className="export-dialog">
-      {exporting && <div className="poster-loading" role="status"><LoaderCircle className="spin" size={25} /><p>正在生成预览 {exportProgress.done}/{exportProgress.total}</p></div>}
-      {exportError && <><p className="inline-warning" role="alert">{exportError}</p><button className="button button-dark full-button" onClick={() => void createPoster()}>重新生成</button></>}
+      {exporting && <div className="poster-loading">
+        <LoaderCircle className="spin" size={25} />
+        <p className="poster-progress-title" role="status">{exportProgress.phase === 'assets' ? '正在拉取素材' : '正在生成预览'} {exportProgress.completed}/{exportProgress.total}</p>
+        <progress aria-label="海报生成进度" value={exportProgress.completed} max={Math.max(1, exportProgress.total)} />
+        <span className="poster-progress-message">{exportProgress.message}</span>
+        {!!exportProgress.activeAssets.length && <ul className="poster-active-assets" aria-label="正在拉取的素材">{exportProgress.activeAssets.map(asset => <li key={asset.label}>
+          <span>{asset.state === 'retrying' ? '准备重试' : '拉取'} {asset.label}</span>
+          <small>{asset.attempt > 1 ? `第${asset.attempt}次尝试 · ` : ''}{assetBytes(asset.loadedBytes)}{asset.totalBytes ? ` / ${assetBytes(asset.totalBytes)}` : ''} · 已等待{asset.elapsedSeconds}秒</small>
+        </li>)}</ul>}
+        <button className="button button-outline" onClick={closePoster}>取消生成</button>
+      </div>}
+      {exportError && <><div className="inline-warning poster-error" role="alert"><p>{exportError}</p>
+        {!!exportFailures.length && <ul>{exportFailures.map((failure, index) => <li key={`${failure.url}-${index}`}><strong>{failure.label}</strong><span>{failure.reason}（已尝试{failure.attempts}次）</span>{failure.url && <a href={failure.url} target="_blank" rel="noopener noreferrer">查看原图</a>}</li>)}</ul>}
+      </div><button className="button button-dark full-button" onClick={() => void createPoster()}>重新生成</button></>}
       {poster && <div className="poster-pages"><div>
         <div className="poster-preview" tabIndex={0} role="region" aria-label={`${exportTitle}海报预览`}>
           {poster.previews.map((preview, index) => <img key={preview.url} src={preview.url} width={preview.width} height={preview.height} style={{ height: 'auto' }} alt={index === 0 ? `${exportTitle}海报预览` : ''} loading="lazy" />)}
         </div>
-        <p className="poster-resolution">{poster.width} × {poster.height} 像素{poster.width < 1920 ? ' · 已自动调整清晰度' : ''}</p>
+        <p className="poster-resolution">{poster.width} × {poster.height} 像素</p>
+        {!!poster.unavailableBackgrounds.length && <details className="poster-source-note"><summary>{poster.unavailableBackgrounds.length}位角色的来源未提供海报立绘</summary><p>{poster.unavailableBackgrounds.join('、')}</p></details>}
         <button className="button button-dark full-button" onClick={() => downloadBlob(poster.blob, `${exportTitle}.png`)}><Download size={16} />下载海报</button>
       </div></div>}
     </Dialog>}

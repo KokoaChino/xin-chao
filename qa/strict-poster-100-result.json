@@ -1,0 +1,46 @@
+{
+  "count": 100,
+  "width": 1920,
+  "height": 56825,
+  "decoded": [
+    1920,
+    56825
+  ],
+  "bytes": 105314232,
+  "previewWidth": 960,
+  "phases": [
+    "preparing",
+    "assets",
+    "rendering",
+    "encoding"
+  ],
+  "maxConcurrent": 4,
+  "singleCharacterPlaceholder": false,
+  "first": true,
+  "last": true,
+  "lastProgress": {
+    "phase": "encoding",
+    "completed": 100,
+    "total": 100,
+    "message": "正在合成完整长图",
+    "activeAssets": [],
+    "unavailableBackgrounds": [
+      "莉莉",
+      "秧秧",
+      "漂泊者 · 女",
+      "漂泊者 · 男",
+      "卜灵",
+      "灯灯",
+      "釉瑚",
+      "白芷",
+      "炽霞",
+      "散华",
+      "秋水",
+      "丹瑾",
+      "莫特斐",
+      "渊武",
+      "桃祈"
+    ]
+  },
+  "seconds": 11.74
+}

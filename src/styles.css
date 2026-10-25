@@ -92,6 +92,24 @@ button,input,textarea,select{font:inherit;color:inherit}button{border:0;backgrou
 .video-library-dialog .official-player { margin-top:20px; }
 .poster-loading { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:15px; min-height:240px; color:#839b70; font-size:12px; }
 .poster-loading p { margin:0; }
+.poster-loading { padding:12px 0; gap:16px; }
+.poster-progress-title { font:500 17px/1.5 var(--font-display); color:#566f49; }
+.poster-loading progress { width:100%; height:7px; border:0; border-radius:6px; overflow:hidden; background:#e5ecdc; accent-color:#8b9f72; }
+.poster-loading progress::-webkit-progress-bar { background:#e5ecdc; border-radius:6px; }
+.poster-loading progress::-webkit-progress-value { background:linear-gradient(90deg,#b4bd96,#7f996d); border-radius:6px; transition:width .25s; }
+.poster-progress-message { align-self:flex-start; font-size:12px; line-height:1.7; color:#829573; }
+.poster-active-assets { list-style:none; width:100%; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+.poster-active-assets li { display:flex; flex-direction:column; gap:5px; padding:11px 13px; border:1px solid #dce5cf; border-radius:8px; background:#fbfcf6a6; }
+.poster-active-assets li>span { font-size:12px; color:#5e784e; }
+.poster-active-assets small { font-size:10px; color:#95a286; line-height:1.6; font-variant-numeric:tabular-nums; }
+.poster-error>p { margin:0; }
+.poster-error ul { list-style:none; margin:12px 0 0; padding:0; display:flex; flex-direction:column; gap:13px; max-height:40vh; overflow:auto; }
+.poster-error li { display:flex; flex-direction:column; align-items:flex-start; gap:3px; }
+.poster-error li strong { font-weight:600; font-size:12px; }
+.poster-error li a { color:#6d825c; text-underline-offset:3px; }
+.poster-source-note { margin:12px 0 0; color:#8a987c; font-size:10px; line-height:1.8; }
+.poster-source-note summary { cursor:pointer; }
+.poster-source-note p { margin:6px 0 0; }
 .poster-preview { background:#e6ecdf; overscroll-behavior:contain; }
 .poster-preview img { display:block; }
 .poster-resolution { margin:12px 0 0; color:#7d926d; font-size:11px; line-height:1.6; text-align:right; font-variant-numeric:tabular-nums; }

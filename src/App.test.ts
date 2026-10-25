@@ -6,7 +6,7 @@ import App from './App';
 import { useCatalog } from './hooks/useCatalog';
 import { usePreferences } from './hooks/usePreferences';
 import { createDefaultPreferences } from './data/preferences';
-import { createRankingPoster, downloadBlob, type RankingPoster } from './utils/poster';
+import { createRankingPoster, downloadBlob, type RankingPoster, PosterAssetsError, type PosterProgress } from './utils/poster';
 import type { CharacterSummary, Preferences } from './types';
 
 vi.mock('./hooks/useCatalog', () => ({ useCatalog: vi.fn() }));
@@ -38,8 +38,10 @@ function deferred<T>() {
 }
 
 function posterResult(blob = new Blob(['poster']), previews = [blob]): RankingPoster {
-  return { blob, previews: previews.map(blob => ({ blob, width: 960, height: 512 })), width: 1920, height: 56825 };
+  return { blob, previews: previews.map(blob => ({ blob, width: 960, height: 512 })), width: 1920, height: 56825, unavailableBackgrounds: [] };
 }
+
+function progress(completed: number, total: number): PosterProgress { return { phase: 'rendering', completed, total, message: `已绘制 ${completed}/${total} 位共鸣者`, activeAssets: [], unavailableBackgrounds: [] }; }
 
 describe('海报生成会话', () => {
   let root: Root;
@@ -100,7 +102,7 @@ describe('海报生成会话', () => {
     expect(button.disabled).toBe(true);
     await act(async () => button.click());
     expect(createRankingPoster).toHaveBeenCalledTimes(1);
-    await act(async () => vi.mocked(createRankingPoster).mock.calls[0][2]!(1, 1));
+    await act(async () => vi.mocked(createRankingPoster).mock.calls[0][2]!(progress(1, 1)));
     expect(button.textContent).toContain('1/1');
     expect(container.querySelector('.poster-loading p')?.textContent).toBe('正在生成预览 1/1');
     const blob = new Blob(['current']);
@@ -129,7 +131,7 @@ describe('海报生成会话', () => {
     await render(); await clickText('分享海报');
     expect(vi.mocked(createRankingPoster).mock.calls[1][0].map(entry => entry.id)).toEqual(['two', 'one']);
     await act(async () => {
-      vi.mocked(createRankingPoster).mock.calls[1][2]!(1, 2); oldProgress(99, 99);
+      vi.mocked(createRankingPoster).mock.calls[1][2]!(progress(1, 2)); oldProgress(progress(99, 99));
       if (outcome === 'resolve') obsolete.resolve(posterResult(new Blob(['obsolete'])));
       else obsolete.reject(new Error('obsolete failure'));
     });
@@ -174,14 +176,47 @@ describe('海报生成会话', () => {
     expect(urls.every(url => vi.mocked(URL.revokeObjectURL).mock.calls.some(call => call[0] === url))).toBe(true);
   });
 
-  it('自动降档后显示实际分辨率，下载仍是同一张完整图', async () => {
-    const blob = new Blob(['complete lower resolution poster']);
-    vi.mocked(createRankingPoster).mockResolvedValue({ ...posterResult(blob), width: 1280, height: 37884 });
+  it('素材失败时列出角色、原因和原图，不生成预览或下载入口', async () => {
+    const failure = { label: '西格莉卡 · 头像', url: 'https://images.example/sig.png', reason: '图片来源返回 HTTP 404', attempts: 1 };
+    vi.mocked(createRankingPoster).mockRejectedValueOnce(new PosterAssetsError([failure]));
     await render(); await clickText('分享海报');
-    expect(container.querySelector('.poster-resolution')?.textContent).toContain('1280 × 37884');
-    expect(container.querySelector('.poster-resolution')?.textContent).toContain('已自动调整清晰度');
-    await clickText('下载海报');
-    expect(downloadBlob).toHaveBeenCalledExactlyOnceWith(blob, '我的共鸣者XP排行榜.png');
+    const error = container.querySelector('[role="alert"]');
+    expect(error?.textContent).toContain('西格莉卡 · 头像');
+    expect(error?.textContent).toContain('HTTP 404');
+    expect(error?.querySelector('a')?.getAttribute('href')).toBe(failure.url);
+    expect(container.querySelector('.poster-preview')).toBeNull();
+    expect(container.querySelector('.poster-resolution')).toBeNull();
+    expect(downloadBlob).not.toHaveBeenCalled();
+    expect(URL.createObjectURL).not.toHaveBeenCalled();
+  });
+
+  it('展示并发拉取明细、字节数和重试；点击取消终止任务', async () => {
+    const pending = deferred<RankingPoster>();
+    vi.mocked(createRankingPoster).mockReturnValue(pending.promise);
+    await render(); await clickText('分享海报');
+    await act(async () => vi.mocked(createRankingPoster).mock.calls[0][2]!({
+      phase: 'assets', completed: 12, total: 86, message: '已就绪 12/86 项素材', unavailableBackgrounds: [],
+      activeAssets: [{ label: '菲比 · 海报立绘', state: 'fetching', attempt: 1, elapsedSeconds: 18, loadedBytes: 1048576, totalBytes: 2097152 },
+        { label: '西格莉卡 · 头像', state: 'retrying', attempt: 2, elapsedSeconds: 3, loadedBytes: 0 }],
+    }));
+    expect(container.querySelector('.poster-progress-title')?.textContent).toBe('正在拉取素材 12/86');
+    expect(container.querySelector('.poster-active-assets')?.textContent).toContain('菲比 · 海报立绘');
+    expect(container.querySelector('.poster-active-assets')?.textContent).toContain('1.0 MB / 2.0 MB');
+    expect(container.querySelector('.poster-active-assets')?.textContent).toContain('第2次尝试');
+    expect(container.querySelector('progress')?.getAttribute('value')).toBe('12');
+    const signal = vi.mocked(createRankingPoster).mock.calls[0][3]!;
+    await clickText('取消生成');
+    expect(signal.aborted).toBe(true);
+    expect(container.querySelector('[role=dialog]')).toBeNull();
+    await act(async () => pending.reject(new DOMException('cancel', 'AbortError')));
+    expect(container.textContent).not.toContain('cancel');
+  });
+
+  it('来源本身未提供背景的角色在预览中明确列出，不冒充加载成功', async () => {
+    vi.mocked(createRankingPoster).mockResolvedValue({ ...posterResult(), unavailableBackgrounds: ['秧秧'] });
+    await render(); await clickText('分享海报');
+    expect(container.querySelector('.poster-source-note')?.textContent).toContain('1位角色的来源未提供海报立绘');
+    expect(container.querySelector('.poster-source-note')?.textContent).toContain('秧秧');
   });
 
   it('卸载后才返回的生成任务不创建预览URL或触发下载', async () => {
