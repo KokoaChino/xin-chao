@@ -1,0 +1,233 @@
+[
+  {
+    "file": "/private/tmp/quality-cantarella-illustration.png",
+    "width": 696,
+    "height": 960,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 368004,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      0,
+      149,
+      696,
+      957
+    ],
+    "transparentPixelFraction": 0.4599,
+    "partiallyTransparentPixelFraction": 0.4597,
+    "headers": "HTTP/2 200 \nlast-modified: Thu, 04 Jun 2026 02:17:56 GMT\netag: \"c087798558c34321f4e5eef428c685f9\"\ncontent-type: image/png\ndate: Thu, 04 Jun 2026 08:48:05 GMT\nserver: tencent-cos\nvary: Origin, Access-Control-Request-Headers, Access-Control-Request-Method\nx-cos-hash-crc64ecma: 6271908342435388392\nx-cos-request-id: NmEyMTNiYzVfNDhmN2MzMDlfNzdmNV8xYmI4OTJh\nx-cos-version-id: MTg0NDQ5NjM1MzQyMzMwMDE0MDk\ncontent-length: 368004\naccept-ranges: bytes\nx-nws-log-uuid: 13915718482663036058\nx-cache-lookup: Cache Hit\naccess-control-allow-origin: *\nstrict-transport-security: max-age=2592000;\ncache-control: max-age=86400\n\n",
+    "id": "cantarella-illustration",
+    "name": "坎特蕾拉 攻略立绘",
+    "url": "https://guide-res.aki-game.com/introduction/material/91df769d78fab5575c781a6eaa4733bd/c529907cec256dc427728b03f491b179.png",
+    "verifiedDate": "2026-10-23",
+    "timezone": "Asia/Shanghai",
+    "alphaFractions": {
+      "zero": 0.4599,
+      "1to127": 0.1043,
+      "128to244": 0.0876,
+      "245to254": 0.2677,
+      "opaque": 0.0804
+    }
+  },
+  {
+    "file": "/private/tmp/quality-jinxi-card.png",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 83524,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      0,
+      24,
+      256,
+      256
+    ],
+    "transparentPixelFraction": 0.3189,
+    "partiallyTransparentPixelFraction": 0.0325,
+    "headers": "HTTP/2 200 \nlast-modified: Thu, 04 Jun 2026 02:17:48 GMT\netag: \"b12a184b8c1451fb8e52d86dc0afb5f7\"\ncontent-type: image/png\ndate: Thu, 04 Jun 2026 08:48:08 GMT\nserver: tencent-cos\nvary: Origin, Access-Control-Request-Headers, Access-Control-Request-Method\nx-cos-hash-crc64ecma: 9774780492562253956\nx-cos-request-id: NmEyMTNiYzhfOWM2ZWIzMDlfMTA1OTZfODczMDNjYQ==\nx-cos-version-id: MTg0NDQ5NjM1MzQyNDE0MDAzODM\ncontent-length: 83524\naccept-ranges: bytes\nx-nws-log-uuid: 11192148862066469704\nx-cache-lookup: Cache Hit\naccess-control-allow-origin: *\nstrict-transport-security: max-age=2592000;\ncache-control: max-age=86400\n\n",
+    "id": "jinxi-card",
+    "name": "今汐 攻略卡片",
+    "url": "https://guide-res.aki-game.com/introduction/material/315e7aac9186a176b8b15c15e0a0d779/f0f853fc28b06aab285db5ab274bec52.png",
+    "verifiedDate": "2026-10-23",
+    "timezone": "Asia/Shanghai",
+    "alphaFractions": {
+      "zero": 0.3189,
+      "1to127": 0.0151,
+      "128to244": 0.0146,
+      "245to254": 0.0029,
+      "opaque": 0.6485
+    }
+  },
+  {
+    "file": "/private/tmp/quality-jinxi-head-full.png",
+    "width": 500,
+    "height": 500,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 408434,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      0,
+      14,
+      500,
+      500
+    ],
+    "transparentPixelFraction": 0.2173,
+    "partiallyTransparentPixelFraction": 0.0164,
+    "headers": "HTTP/2 200 \nserver: Tengine\ncontent-type: image/png\ncontent-length: 408434\ndate: Tue, 07 Apr 2026 11:32:09 GMT\nx-oss-request-id: 69D4EB39DDACE0323861E6EE\nx-oss-cdn-auth: success\naccept-ranges: bytes\netag: \"D35135BB8FB1938596E7D57F2DB22FD6\"\nlast-modified: Fri, 28 Jun 2024 04:14:12 GMT\nx-oss-object-type: Normal\nx-oss-hash-crc64ecma: 360125831319058490\nx-oss-storage-class: Standard\nx-oss-version-id: CAEQKhiBgMDkhJr0ghkiIDEzMDBlOTVjOTViMTRhZmViNWFlY2ZmYjk5YjFjODc3\ncontent-md5: 01E1u4+xk4WW59V/LbIv1g==\nx-oss-server-time: 27\nvia: ens-cache54.l2cn8942[0,2,200-0,H], ens-cache33.l2cn8942[5,0], cache21.cn3445[0,1,200-0,H], cache21.cn3445[4,0]\nage: 17202660\nali-swift-global-savetime: 1775561529\nx-cache: HIT TCP_HIT dirn:9:803148483\nx-swift-savetime: Fri, 24 Apr 2026 03:43:51 GMT\nx-swift-cachetime: 91871298\ncache-control: max-age=31536000\naccess-control-allow-origin: *\ntiming-allow-origin: *\neagleid: 3dae2b2917927641897815445e\n\n",
+    "id": "jinxi-head-full",
+    "name": "今汐 原始头像 500",
+    "url": "https://prod-alicdn-community.kurobbs.com/newHead/aki/jinxi.png",
+    "verifiedDate": "2026-10-23",
+    "timezone": "Asia/Shanghai",
+    "alphaFractions": {
+      "zero": 0.2173,
+      "1to127": 0.0081,
+      "128to244": 0.0069,
+      "245to254": 0.0014,
+      "opaque": 0.7664
+    }
+  },
+  {
+    "file": "/private/tmp/quality-jinxi-head-small.png",
+    "width": 128,
+    "height": 128,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 36964,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      0,
+      3,
+      128,
+      128
+    ],
+    "transparentPixelFraction": 0.1919,
+    "partiallyTransparentPixelFraction": 0.0736,
+    "headers": "HTTP/2 200 \nserver: Tengine\ncontent-type: image/png\ncontent-length: 36964\ndate: Fri, 12 Dec 2025 13:11:21 GMT\nx-oss-request-id: 693C14798F35C8333655CC82\nx-oss-cdn-auth: success\netag: \"D35135BB8FB1938596E7D57F2DB22FD6\"\nlast-modified: Fri, 28 Jun 2024 04:14:12 GMT\nx-oss-object-type: Normal\nx-oss-storage-class: Standard\nx-oss-version-id: CAEQKhiBgMDkhJr0ghkiIDEzMDBlOTVjOTViMTRhZmViNWFlY2ZmYjk5YjFjODc3\nx-oss-hash-crc64ecma: 5867843663766357838\nx-oss-server-time: 105\nvia: ens-cache37.l2cn9026[0,15,200-0,H], ens-cache8.l2cn9026[17,0], cache16.cn3445[0,4,200-0,H], cache1.cn3445[7,0]\nage: 27219103\nali-swift-global-savetime: 1765545081\nx-cache: HIT TCP_HIT dirn:8:941106792\nx-swift-savetime: Fri, 23 Oct 2026 13:54:21 GMT\nx-swift-cachetime: 66093420\ncache-control: max-age=31536000\naccess-control-allow-origin: *\ntiming-allow-origin: *\neagleid: 3dae2b1517927641841396835e\n\n",
+    "id": "jinxi-head-small",
+    "name": "今汐 缩略头像 128",
+    "url": "https://prod-alicdn-community.kurobbs.com/newHead/aki/jinxi.png?x-oss-process=image/resize,w_128,h_128",
+    "verifiedDate": "2026-10-23",
+    "timezone": "Asia/Shanghai",
+    "alphaFractions": {
+      "zero": 0.1919,
+      "1to127": 0.0328,
+      "128to244": 0.0299,
+      "245to254": 0.0109,
+      "opaque": 0.7345
+    }
+  },
+  {
+    "file": "/private/tmp/quality-jinxi-illustration.png",
+    "width": 696,
+    "height": 960,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 348765,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      0,
+      169,
+      696,
+      957
+    ],
+    "transparentPixelFraction": 0.5497,
+    "partiallyTransparentPixelFraction": 0.1864,
+    "headers": "HTTP/2 200 \nlast-modified: Thu, 04 Jun 2026 02:17:53 GMT\netag: \"81ea3ab68174e13f05e00fe1b74291ed\"\ncontent-type: image/png\ndate: Thu, 04 Jun 2026 08:48:06 GMT\nserver: tencent-cos\nvary: Origin, Access-Control-Request-Headers, Access-Control-Request-Method\nx-cos-hash-crc64ecma: 8918845923604914237\nx-cos-request-id: NmEyMTNiYzZfOGEyZjY4MDlfOGQ2OF9jMGQ0OTc0\nx-cos-version-id: MTg0NDQ5NjM1MzQyMzYzMDg4OTk\ncontent-length: 348765\naccept-ranges: bytes\nx-nws-log-uuid: 3035392072624345817\nx-cache-lookup: Cache Hit\naccess-control-allow-origin: *\nstrict-transport-security: max-age=2592000;\ncache-control: max-age=86400\n\n",
+    "id": "jinxi-illustration",
+    "name": "今汐 攻略立绘",
+    "url": "https://guide-res.aki-game.com/introduction/material/91df769d78fab5575c781a6eaa4733bd/f0f853fc28b06aab285db5ab274bec52.png",
+    "verifiedDate": "2026-10-23",
+    "timezone": "Asia/Shanghai",
+    "alphaFractions": {
+      "zero": 0.5497,
+      "1to127": 0.098,
+      "128to244": 0.0708,
+      "245to254": 0.0176,
+      "opaque": 0.2638
+    }
+  },
+  {
+    "file": "/private/tmp/quality-jinxi-wiki.png",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 98642,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      8,
+      34,
+      232,
+      232
+    ],
+    "transparentPixelFraction": 0.5412,
+    "partiallyTransparentPixelFraction": 0.0564,
+    "headers": "HTTP/2 200 \nserver: Tengine\ncontent-type: image/png\ncontent-length: 98642\ndate: Mon, 19 Oct 2026 08:34:35 GMT\nx-oss-request-id: 6AD5D61BEC0F103739F08238\nx-oss-cdn-auth: success\naccept-ranges: bytes\netag: \"C01F3C989B473681AB2BEF2945F660BD\"\nlast-modified: Thu, 23 Oct 2025 14:51:52 GMT\nx-oss-object-type: Normal\nx-oss-hash-crc64ecma: 15504653515500088985\nx-oss-storage-class: Standard\nx-oss-version-id: CAEQTxiBgMC4iZzG0BkiIGIzYzAxMTQwZGFjYTRiYmE4ODQwOGZmNmRhMDljMTFm\ncontent-md5: wB88mJtHNoGrK+8pRfZgvQ==\nx-oss-server-time: 51\nvia: ens-cache46.l2cn9026[0,19,200-0,H], ens-cache3.l2cn9026[21,0], cache23.cn3445[0,0,200-0,H], cache12.cn3445[4,0]\nage: 365311\nali-swift-global-savetime: 1792398875\nx-cache: HIT TCP_MEM_HIT dirn:-2:-2\nx-swift-savetime: Fri, 23 Oct 2026 14:02:56 GMT\nx-swift-cachetime: 92946699\ncache-control: max-age=31536000\naccess-control-allow-origin: *\ntiming-allow-origin: *\neagleid: 3dae2b2017927641865003152e\n\n",
+    "id": "jinxi-wiki",
+    "name": "今汐 Wiki 头像",
+    "url": "https://prod-alicdn-community.kurobbs.com/forum/057c16102b7145b6851b5b7e28ca712520251023.png",
+    "verifiedDate": "2026-10-23",
+    "timezone": "Asia/Shanghai",
+    "alphaFractions": {
+      "zero": 0.5412,
+      "1to127": 0.0236,
+      "128to244": 0.0191,
+      "245to254": 0.0137,
+      "opaque": 0.4024
+    }
+  },
+  {
+    "file": "/private/tmp/quality-rover-illustration.png",
+    "width": 696,
+    "height": 960,
+    "mode": "P",
+    "format": "PNG",
+    "bytes": 237037,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      0,
+      42,
+      696,
+      960
+    ],
+    "transparentPixelFraction": 0.4487,
+    "partiallyTransparentPixelFraction": 0.013,
+    "headers": "HTTP/2 200 \nlast-modified: Thu, 04 Jun 2026 02:17:54 GMT\netag: \"845a241bab028bbd454e262fbf6dedef\"\ncontent-type: image/png\ndate: Wed, 23 Sep 2026 11:30:26 GMT\nserver: tencent-cos\nvary: Origin, Access-Control-Request-Headers, Access-Control-Request-Method\nx-cos-hash-crc64ecma: 17896559872141144271\nx-cos-request-id: NmFiM2I4NTFfYTY0YTBmMWVfY2M1NF8xMWQxODc4Yg==\nx-cos-version-id: MTg0NDQ5NjM1MzQyMzUyMzk2NDQ\nage: 90930\ncontent-length: 237037\naccept-ranges: bytes\nx-nws-log-uuid: 9867914871390155938\nx-cache-lookup: Cache Hit\naccess-control-allow-origin: *\nstrict-transport-security: max-age=2592000;\ncache-control: max-age=86400\n\n",
+    "id": "rover-illustration",
+    "name": "漂泊者 气动 攻略立绘",
+    "url": "https://guide-res.aki-game.com/introduction/material/91df769d78fab5575c781a6eaa4733bd/e2d9a74d8323aed853d6a1e999a9a56b.png",
+    "verifiedDate": "2026-10-23",
+    "timezone": "Asia/Shanghai",
+    "alphaFractions": {
+      "zero": 0.4487,
+      "1to127": 0.0068,
+      "128to244": 0.0058,
+      "245to254": 0.0005,
+      "opaque": 0.5383
+    }
+  }
+]

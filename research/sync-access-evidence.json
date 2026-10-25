@@ -1,0 +1,158 @@
+{
+  "checkedAt": "2026-10-23T23:01:18.526018+08:00",
+  "note": "Independent curl -q processes; no browser session or auth credentials.",
+  "results": [
+    {
+      "name": "wiki_detail_third_party_origin",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getEntryDetail",
+      "requestMethod": "POST",
+      "requestHeaders": {
+        "wiki_type": "9",
+        "source": "wiki",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Origin": "https://example.com",
+        "Referer": "https://example.com/"
+      },
+      "curlConfigDisabled": true,
+      "credentialsUsed": false,
+      "curlExitCode": 0,
+      "httpStatus": "200",
+      "responseHeaders": {
+        "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers,accept-encoding",
+        "access-control-allow-origin": "https://example.com",
+        "access-control-allow-credentials": "true",
+        "content-type": "application/json"
+      },
+      "receivedBodyBytes": 328948,
+      "businessCode": 200,
+      "message": "操作成功",
+      "dataType": "dict",
+      "dataKeys": [
+        "id",
+        "name",
+        "orgFullName",
+        "orgTree",
+        "orgId",
+        "orgIdList",
+        "content",
+        "currentVersion",
+        "onlineVersion",
+        "browseCount",
+        "lastUpdateTime",
+        "lastEditUserName",
+        "userScoreList",
+        "status",
+        "checkStatus"
+      ]
+    },
+    {
+      "name": "wiki_browser_preflight",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getEntryDetail",
+      "requestMethod": "OPTIONS",
+      "requestHeaders": {
+        "Origin": "https://example.com",
+        "Access-Control-Request-Method": "POST",
+        "Access-Control-Request-Headers": "source,wiki_type"
+      },
+      "curlConfigDisabled": true,
+      "credentialsUsed": false,
+      "curlExitCode": 0,
+      "httpStatus": "200",
+      "responseHeaders": {
+        "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
+        "access-control-allow-origin": "https://example.com",
+        "access-control-allow-methods": "OPTIONS,HEAD,GET,PUT,POST,DELETE,PATCH",
+        "access-control-allow-headers": "source, wiki_type",
+        "access-control-allow-credentials": "true",
+        "content-length": "0"
+      },
+      "receivedBodyBytes": 0,
+      "first12BytesHex": ""
+    },
+    {
+      "name": "community_avatar_list",
+      "url": "https://api.kurobbs.com/user/head/list?type=1",
+      "requestMethod": "GET",
+      "requestHeaders": {
+        "source": "h5"
+      },
+      "curlConfigDisabled": true,
+      "credentialsUsed": false,
+      "curlExitCode": 0,
+      "httpStatus": "200",
+      "responseHeaders": {
+        "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
+        "content-type": "application/json;charset=UTF-8"
+      },
+      "receivedBodyBytes": 45,
+      "businessCode": 220,
+      "message": "访问令牌不能为空",
+      "dataType": "NoneType"
+    },
+    {
+      "name": "guide_role_list",
+      "url": "https://guide-server.aki-game.com/role/avatar/list",
+      "requestMethod": "GET",
+      "requestHeaders": {
+        "x-language": "zh-Hans"
+      },
+      "curlConfigDisabled": true,
+      "credentialsUsed": false,
+      "curlExitCode": 0,
+      "httpStatus": "200",
+      "responseHeaders": {
+        "content-type": "application/json; charset=UTF-8",
+        "vary": "Origin"
+      },
+      "receivedBodyBytes": 197643,
+      "businessCode": 200,
+      "message": "ok",
+      "dataType": "list",
+      "dataCount": 60
+    },
+    {
+      "name": "community_avatar_file",
+      "url": "https://prod-alicdn-community.kurobbs.com/newHead/aki/jinxi.png",
+      "requestMethod": "GET",
+      "requestHeaders": {
+        "Range": "bytes=0-31"
+      },
+      "curlConfigDisabled": true,
+      "credentialsUsed": false,
+      "curlExitCode": 0,
+      "httpStatus": "206",
+      "responseHeaders": {
+        "content-type": "image/png",
+        "content-length": "32",
+        "etag": "\"D35135BB8FB1938596E7D57F2DB22FD6\"",
+        "last-modified": "Fri, 28 Jun 2024 04:14:12 GMT",
+        "content-range": "bytes 0-31/408434",
+        "access-control-allow-origin": "*"
+      },
+      "receivedBodyBytes": 32,
+      "first12BytesHex": "89504e470d0a1a0a0000000d"
+    },
+    {
+      "name": "wiki_voice_file",
+      "url": "https://web-static.kurobbs.com/wiki_audio/1732542522469154747.wav",
+      "requestMethod": "GET",
+      "requestHeaders": {
+        "Range": "bytes=0-63"
+      },
+      "curlConfigDisabled": true,
+      "credentialsUsed": false,
+      "curlExitCode": 0,
+      "httpStatus": "206",
+      "responseHeaders": {
+        "content-type": "audio/x-wav",
+        "content-length": "64",
+        "etag": "\"E520343E5631C1891072EE85F64BF6C7\"",
+        "last-modified": "Mon, 25 Nov 2024 13:48:42 GMT",
+        "content-range": "bytes 0-63/2356650",
+        "access-control-allow-origin": "*"
+      },
+      "receivedBodyBytes": 64,
+      "first12BytesHex": "52494646a2f5230057415645"
+    }
+  ]
+}

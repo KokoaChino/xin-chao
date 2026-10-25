@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-10-23T16:03:47.405Z",
+  "sourceMode": "anonymous-live-api",
+  "source": "https://wiki.kurobbs.com/mc/home",
+  "entryCount": 65,
+  "identityCount": 58,
+  "previewCharacters": [
+    "莉莉"
+  ],
+  "sourceSnapshotEarliest": "2026-10-23T16:03:48.135Z",
+  "sourceSnapshotLatest": "2026-10-23T16:03:51.110Z",
+  "archives": 62,
+  "treasures": 228,
+  "stories": 280,
+  "voiceCount": 5223,
+  "voiceLanguages": {
+    "中文": 4275,
+    "英文": 377,
+    "日文": 255,
+    "韩文": 316
+  },
+  "voiceCategories": {
+    "personality": 2304,
+    "combat": 2919
+  },
+  "uniqueAudioUrls": 4962,
+  "artworks": 281,
+  "outfits": [
+    {
+      "character": "赞妮",
+      "name": "城市午茶",
+      "images": 3,
+      "voices": 0
+    },
+    {
+      "character": "珂莱塔",
+      "name": "夏日旖旎",
+      "images": 3,
+      "voices": 0
+    },
+    {
+      "character": "长离",
+      "name": "桂枝宁芙",
+      "images": 3,
+      "voices": 0
+    },
+    {
+      "character": "今汐",
+      "name": "桃夭灼灼",
+      "images": 3,
+      "voices": 0
+    },
+    {
+      "character": "散华",
+      "name": "叱妖诰",
+      "images": 3,
+      "voices": 0
+    }
+  ],
+  "limitations": [
+    "语种按实际非空音频链接统计，空白语种标签不视为已收录。",
+    "媒体保留官方远程链接，未将全量图片和音频打包到项目。",
+    "已有图片原始尺寸来自已核验素材清单，新增素材无已知尺寸时不编造。",
+    "来源缺失项目通过每位角色的 syncWarnings 明确记录。",
+    "语音 URL 已完整收录，收录不代表逐段播放验证。",
+    "人物数据只包含展示字段，不包含编辑者、账号、评分和登录凭据。",
+    "相同语言、类别、服装和音频链接的重复条目已去重。"
+  ],
+  "voiceLanguageCoverage": {
+    "中文": {
+      "characterEntries": 64,
+      "names": [
+        "丹瑾",
+        "丽贝卡",
+        "仇远",
+        "今汐",
+        "凌阳",
+        "千咲",
+        "卜灵",
+        "卡卡罗",
+        "卡提希娅",
+        "吟霖",
+        "嘉贝莉娜",
+        "坎特蕾拉",
+        "夏空",
+        "奥古斯塔",
+        "守岸人",
+        "安可",
+        "尤诺",
+        "布兰特",
+        "弗洛洛",
+        "心",
+        "忌炎",
+        "折枝",
+        "散华",
+        "景燃",
+        "桃祈",
+        "椿",
+        "洛可可",
+        "洛瑟菈",
+        "清宵",
+        "渊武",
+        "漂泊者-女-导电",
+        "漂泊者-女-气动",
+        "漂泊者-女-湮灭",
+        "漂泊者-女-衍射",
+        "漂泊者-男-导电",
+        "漂泊者-男-气动",
+        "漂泊者-男-湮灭",
+        "漂泊者-男-衍射",
+        "灯灯",
+        "炽霞",
+        "爱弥斯",
+        "珂莱塔",
+        "琳奈",
+        "白芷",
+        "相里要",
+        "秋水",
+        "秧秧",
+        "秧秧·玄翎",
+        "穗穗",
+        "绯雪",
+        "维里奈",
+        "莫宁",
+        "莫特斐",
+        "菲比",
+        "西格莉卡",
+        "赞妮",
+        "达妮娅",
+        "釉瑚",
+        "鉴心",
+        "锁暝",
+        "长离",
+        "陆·赫斯",
+        "露帕",
+        "露西"
+      ]
+    },
+    "英文": {
+      "characterEntries": 6,
+      "names": [
+        "丹瑾",
+        "安可",
+        "布兰特",
+        "忌炎",
+        "炽霞",
+        "白芷"
+      ]
+    },
+    "韩文": {
+      "characterEntries": 5,
+      "names": [
+        "丹瑾",
+        "安可",
+        "忌炎",
+        "炽霞",
+        "白芷"
+      ]
+    },
+    "日文": {
+      "characterEntries": 4,
+      "names": [
+        "安可",
+        "忌炎",
+        "炽霞",
+        "白芷"
+      ]
+    }
+  },
+  "voiceDeduplication": {
+    "removedDuplicateTracks": 32,
+    "identity": [
+      "language",
+      "category",
+      "outfitId",
+      "url"
+    ]
+  }
+}

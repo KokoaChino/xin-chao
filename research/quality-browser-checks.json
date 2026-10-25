@@ -1,0 +1,90 @@
+{
+  "verifiedDate": "2026-10-23",
+  "timezone": "Asia/Shanghai",
+  "checks": [
+    {
+      "id": "cantarella-illustration",
+      "name": "坎特蕾拉 攻略立绘",
+      "url": "https://guide-res.aki-game.com/introduction/material/91df769d78fab5575c781a6eaa4733bd/c529907cec256dc427728b03f491b179.png",
+      "origin": "http://127.0.0.1:8769",
+      "displayWidth": 348,
+      "imgRender": "pass",
+      "naturalWidth": 696,
+      "naturalHeight": 960,
+      "canvasExport": "pass",
+      "method": "Real IAB browser; ordinary IMG; separate Image with crossOrigin=anonymous before src; decode; drawImage; toDataURL(image/png). Result read from visible DOM."
+    },
+    {
+      "id": "jinxi-card",
+      "name": "今汐 攻略卡片",
+      "url": "https://guide-res.aki-game.com/introduction/material/315e7aac9186a176b8b15c15e0a0d779/f0f853fc28b06aab285db5ab274bec52.png",
+      "origin": "http://127.0.0.1:8769",
+      "displayWidth": 224,
+      "imgRender": "pass",
+      "naturalWidth": 256,
+      "naturalHeight": 256,
+      "canvasExport": "pass",
+      "method": "Real IAB browser; ordinary IMG; separate Image with crossOrigin=anonymous before src; decode; drawImage; toDataURL(image/png). Result read from visible DOM."
+    },
+    {
+      "id": "jinxi-head-full",
+      "name": "今汐 原始头像 500",
+      "url": "https://prod-alicdn-community.kurobbs.com/newHead/aki/jinxi.png",
+      "origin": "http://127.0.0.1:8769",
+      "displayWidth": 224,
+      "imgRender": "pass",
+      "naturalWidth": 500,
+      "naturalHeight": 500,
+      "canvasExport": "pass",
+      "method": "Real IAB browser; ordinary IMG; separate Image with crossOrigin=anonymous before src; decode; drawImage; toDataURL(image/png). Result read from visible DOM."
+    },
+    {
+      "id": "jinxi-head-small",
+      "name": "今汐 缩略头像 128",
+      "url": "https://prod-alicdn-community.kurobbs.com/newHead/aki/jinxi.png?x-oss-process=image/resize,w_128,h_128",
+      "origin": "http://127.0.0.1:8769",
+      "displayWidth": 224,
+      "imgRender": "pass",
+      "naturalWidth": 128,
+      "naturalHeight": 128,
+      "canvasExport": "pass",
+      "method": "Real IAB browser; ordinary IMG; separate Image with crossOrigin=anonymous before src; decode; drawImage; toDataURL(image/png). Result read from visible DOM."
+    },
+    {
+      "id": "jinxi-illustration",
+      "name": "今汐 攻略立绘",
+      "url": "https://guide-res.aki-game.com/introduction/material/91df769d78fab5575c781a6eaa4733bd/f0f853fc28b06aab285db5ab274bec52.png",
+      "origin": "http://127.0.0.1:8769",
+      "displayWidth": 348,
+      "imgRender": "pass",
+      "naturalWidth": 696,
+      "naturalHeight": 960,
+      "canvasExport": "pass",
+      "method": "Real IAB browser; ordinary IMG; separate Image with crossOrigin=anonymous before src; decode; drawImage; toDataURL(image/png). Result read from visible DOM."
+    },
+    {
+      "id": "jinxi-wiki",
+      "name": "今汐 Wiki 头像",
+      "url": "https://prod-alicdn-community.kurobbs.com/forum/057c16102b7145b6851b5b7e28ca712520251023.png",
+      "origin": "http://127.0.0.1:8769",
+      "displayWidth": 224,
+      "imgRender": "pass",
+      "naturalWidth": 256,
+      "naturalHeight": 256,
+      "canvasExport": "pass",
+      "method": "Real IAB browser; ordinary IMG; separate Image with crossOrigin=anonymous before src; decode; drawImage; toDataURL(image/png). Result read from visible DOM."
+    },
+    {
+      "id": "rover-illustration",
+      "name": "漂泊者 气动 攻略立绘",
+      "url": "https://guide-res.aki-game.com/introduction/material/91df769d78fab5575c781a6eaa4733bd/e2d9a74d8323aed853d6a1e999a9a56b.png",
+      "origin": "http://127.0.0.1:8769",
+      "displayWidth": 348,
+      "imgRender": "pass",
+      "naturalWidth": 696,
+      "naturalHeight": 960,
+      "canvasExport": "pass",
+      "method": "Real IAB browser; ordinary IMG; separate Image with crossOrigin=anonymous before src; decode; drawImage; toDataURL(image/png). Result read from visible DOM."
+    }
+  ]
+}

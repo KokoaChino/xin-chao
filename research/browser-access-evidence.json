@@ -1,0 +1,93 @@
+{
+  "checkedDate": "2026-10-23",
+  "timezone": "Asia/Shanghai",
+  "method": "A temporary static HTML/JavaScript page served on loopback and opened in the real Edge browser. Requests used fetch with mode=cors and credentials=omit. Results were read from the rendered DOM. The local server only served static files and did not proxy API calls.",
+  "pageOrigin": "http://127.0.0.1:8783",
+  "credentialsMode": "omit",
+  "temporaryProbeFile": "/private/tmp/wuwa-browser-sync-probe/index.html",
+  "results": [
+    {
+      "name": "wiki-tree",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/config/getTree",
+      "responseType": "cors",
+      "httpStatus": 200,
+      "businessCode": 200
+    },
+    {
+      "name": "wiki-role-directory",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getPage",
+      "responseType": "cors",
+      "httpStatus": 200,
+      "businessCode": 200,
+      "recordCount": 65,
+      "total": 65,
+      "entryIdTypeFromStandardJsonParse": "number",
+      "implementationNote": "Use lossless parsing for long numeric directory IDs before treating them as strings."
+    },
+    {
+      "name": "wiki-role-detail",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getEntryDetail",
+      "requestedEntryId": "1249040336606580736",
+      "responseType": "cors",
+      "httpStatus": 200,
+      "businessCode": 200,
+      "roleName": "今汐",
+      "idTypeFromStandardJsonParse": "string",
+      "observedRequiredSections": [
+        "角色组件",
+        "其他信息",
+        "角色皮肤",
+        "皮肤立绘",
+        "检验鉴定",
+        "珍贵之物",
+        "角色故事",
+        "个性语音",
+        "战斗语音"
+      ],
+      "personalityAudioCounts": {
+        "中文": 31,
+        "日文": 0,
+        "英文": 0,
+        "韩文": 0
+      },
+      "combatAudioCounts": {
+        "中文": 43,
+        "日文": 0,
+        "英文": 0,
+        "韩文": 0
+      }
+    },
+    {
+      "name": "community-avatar-directory",
+      "url": "https://api.kurobbs.com/user/head/list?type=1",
+      "responseType": "cors",
+      "httpStatus": 200,
+      "businessCode": 220,
+      "message": "访问令牌不能为空"
+    },
+    {
+      "name": "guide-role-directory",
+      "url": "https://guide-server.aki-game.com/role/avatar/list",
+      "browserError": "TypeError: Failed to fetch",
+      "requestHeaders": {
+        "x-language": "zh-Hans"
+      },
+      "anonymousHttpFollowUp": {
+        "origin": "http://127.0.0.1:8783",
+        "optionsStatus": 200,
+        "optionsAllowedHeaders": "X-B3-Traceid,X-Token,x-os,x-language,content-type,x-fe-trace-id",
+        "optionsAllowedMethods": "GET,POST,OPTIONS,DELETE,PUT",
+        "optionsAllowedOrigin": null,
+        "getStatus": 200,
+        "getAllowedOrigin": null,
+        "conclusion": "Neither preflight nor GET allowed the tested Origin; do not require this API for browser-only runtime updates."
+      }
+    }
+  ],
+  "limits": [
+    "This verifies the tested loopback web origin in Edge, not every future deployment domain or browser.",
+    "Direct file:// loading was not tested and is not the proposed runtime.",
+    "Only one role detail was read in this browser probe; earlier separate anonymous probes cover additional roles.",
+    "The test page is a diagnostic, not a production sync implementation."
+  ]
+}

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "jinxi-team",
+    "name": "今汐",
+    "file": "/private/tmp/quality-jinxi-team.png",
+    "url": "https://prod-alicdn-community.kurobbs.com/forum/16686bb7915c4e63941b44aeb4976fdf20240627.png",
+    "sourcePage": "https://wiki.kurobbs.com/mc/item/1249040336606580736",
+    "sourceLabel": "编队立绘",
+    "width": 1111,
+    "height": 1515,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 1195603,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      0,
+      34,
+      1051,
+      1482
+    ],
+    "transparentPixelFraction": 0.7028,
+    "partiallyTransparentPixelFraction": 0.0159,
+    "headers": "HTTP/2 200 \nserver: Tengine\ncontent-type: image/png\ncontent-length: 1195603\ndate: Sat, 12 Sep 2026 10:55:18 GMT\nx-oss-request-id: 6AA52F969CA69D30328AEC56\naccess-control-allow-origin: *\naccess-control-allow-methods: POST, PUT, GET, HEAD, DELETE\naccess-control-expose-headers: ETag, x-oss-request-id\naccess-control-max-age: 10\nx-oss-cdn-auth: success\naccept-ranges: bytes\netag: \"1734095C41B29C28061C615AD60D1EFA\"\nlast-modified: Wed, 26 Jun 2024 18:40:52 GMT\nx-oss-object-type: Normal\nx-oss-hash-crc64ecma: 16484686150238702804\nx-oss-storage-class: Standard\nx-oss-version-id: CAEQKhiBgMCbv7PXghkiIDE1MGRjNTI2NzVmNDRlNzJiMjI4MWJlMzdjZWI3ZDIw\ncontent-md5: FzQJXEGynCgGHGFa1g0e+g==\nx-oss-server-time: 33\nvia: cache40.l2cn9466[0,0,200-0,H], cache58.l2cn9466[1,0], ens-cache7.cn7444[0,-1,200-0,H], ens-cache13.cn7444[4,0]\nage: 3554295\nali-swift-global-savetime: 1789210518\nx-cache: HIT TCP_MEM_HIT dirn:-2:-2\nx-swift-savetime: Sat, 19 Sep 2026 01:28:44 GMT\nx-swift-cachetime: 92741194\ncache-control: max-age=31536000\ntiming-allow-origin: *\neagleid: dde72fa117927648136634957e\n\n",
+    "verifiedDate": "2026-10-23",
+    "method": "Full PNG download and Pillow decode, then visual inspection; not just image/info.",
+    "visualFindings": "Full figure including footwear and complete outfit; hair, costume trim and hand linework are distinct in native-size image review. Different composition from the guide half-body, so total dimensions alone do not imply higher facial detail density.",
+    "realBrowserImgRender": "pass",
+    "httpStatus": 200,
+    "accessControlAllowOrigin": "*",
+    "canvasExport": "not separately tested for these additional high-resolution samples"
+  },
+  {
+    "id": "linnae-team",
+    "name": "琳奈",
+    "file": "/private/tmp/quality-linnae-team.png",
+    "url": "https://prod-alicdn-community.kurobbs.com/forum/5fc8ac57b7814a3ebb3264d39320af1520251225.png",
+    "sourcePage": "https://wiki.kurobbs.com/mc/item/1445377391854534656",
+    "sourceLabel": "编队立绘",
+    "width": 1920,
+    "height": 2843,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 3054706,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      271,
+      40,
+      1915,
+      2789
+    ],
+    "transparentPixelFraction": 0.6944,
+    "partiallyTransparentPixelFraction": 0.0214,
+    "headers": "HTTP/2 200 \nserver: Tengine\ncontent-type: image/png\ncontent-length: 3054706\ndate: Thu, 03 Sep 2026 00:08:47 GMT\nx-oss-request-id: 6A98BA8F6E4D9B3534CBEA3F\nx-oss-cdn-auth: success\naccept-ranges: bytes\netag: \"25408167B882EA5978BC06A404B4EA25\"\nlast-modified: Wed, 24 Dec 2025 20:09:06 GMT\nx-oss-object-type: Normal\nx-oss-hash-crc64ecma: 7649589477471438962\nx-oss-storage-class: Standard\nx-oss-version-id: CAEQUhiBgMCxwPXH2hkiIGQ2YjdmZWFkNjM3OTQ1YTg4YTVjNTNiZGQyNjc5MmE4\ncontent-md5: JUCBZ7iC6ll4vAakBLTqJQ==\nx-oss-server-time: 84\nvia: cache15.l2cn1810[0,0,200-0,H], cache23.l2cn1810[2,0], ens-cache3.cn6310[0,1,200-0,H], ens-cache2.cn6310[13,0]\nage: 4370693\nali-swift-global-savetime: 1788394127\nx-cache: HIT TCP_HIT dirn:8:299998271\nx-swift-savetime: Fri, 11 Sep 2026 04:04:22 GMT\nx-swift-cachetime: 92606665\ncache-control: max-age=31536000\naccess-control-allow-origin: *\ntiming-allow-origin: *\neagleid: dde7511617927648209546258e\n\n",
+    "verifiedDate": "2026-10-23",
+    "method": "Full PNG download and Pillow decode, then visual inspection; not just image/info.",
+    "visualFindings": "Full figure; hair strands, jacket seams, skirt pleats and boot details are visibly resolved. Transparent edges display cleanly on a checkerboard background.",
+    "realBrowserImgRender": "pass",
+    "httpStatus": 200,
+    "accessControlAllowOrigin": "*",
+    "canvasExport": "not separately tested for these additional high-resolution samples"
+  },
+  {
+    "id": "rebecca-team",
+    "name": "丽贝卡",
+    "file": "/private/tmp/quality-rebecca-team.png",
+    "url": "https://prod-alicdn-community.kurobbs.com/forum/d91e23138412472d8c65fc1b1c58c40f20260509.png",
+    "sourcePage": "https://wiki.kurobbs.com/mc/item/1502681773647212544",
+    "sourceLabel": "编队立绘",
+    "width": 4285,
+    "height": 6685,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 9119194,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      336,
+      96,
+      4237,
+      6527
+    ],
+    "transparentPixelFraction": 0.68,
+    "partiallyTransparentPixelFraction": 0.0059,
+    "headers": "HTTP/2 200 \nserver: Tengine\ncontent-type: image/png\ncontent-length: 9119194\ndate: Mon, 21 Sep 2026 03:36:30 GMT\nx-oss-request-id: 6AB0A63E526D78373374C938\nx-oss-cdn-auth: success\naccept-ranges: bytes\netag: \"4257D42DF731D802F59DA7B29A7BC10F\"\nlast-modified: Sat, 09 May 2026 06:51:19 GMT\nx-oss-object-type: Normal\nx-oss-hash-crc64ecma: 1669506930597140087\nx-oss-storage-class: Standard\nx-oss-version-id: CAEQXxiBgICavYKu8BkiIDgyZjgzZWQyNGYyMjRjMWQ4NWJiZDFlMjE4ODgxZDg3\ncontent-md5: QlfULfcx2AL1naeymnvBDw==\nx-oss-server-time: 38\nvia: cache34.l2cn9466[0,15,200-0,H], cache52.l2cn9466[17,0], ens-cache10.cn7444[0,0,200-0,H], ens-cache11.cn7444[4,0]\nage: 2803028\nali-swift-global-savetime: 1789961790\nx-cache: HIT TCP_HIT dirn:10:139359629\nx-swift-savetime: Sat, 03 Oct 2026 15:30:59 GMT\nx-swift-cachetime: 92232331\ncache-control: max-age=31536000\naccess-control-allow-origin: *\ntiming-allow-origin: *\neagleid: dde72f9f17927648187728473e\n\n",
+    "verifiedDate": "2026-10-23",
+    "method": "Full PNG download and Pillow decode, then visual inspection; not just image/info.",
+    "visualFindings": "Full figure; 100% source-pixel face window in real browser preserves eye borders, face markings, teeth linework and hair layers. No obvious thumbnail-scale pixelation. Original production pipeline is not known.",
+    "realBrowserImgRender": "pass",
+    "httpStatus": 200,
+    "accessControlAllowOrigin": "*",
+    "canvasExport": "not separately tested for these additional high-resolution samples"
+  },
+  {
+    "id": "rover-female-team",
+    "name": "漂泊者-女-导电",
+    "file": "/private/tmp/quality-rover-female-team.png",
+    "url": "https://prod-alicdn-community.kurobbs.com/forum/d4fd736ac8b94e7cb758861191dbd0c820240521.png",
+    "sourcePage": "https://wiki.kurobbs.com/mc/item/1524702668029300736",
+    "sourceLabel": "编队立绘",
+    "width": 1129,
+    "height": 1654,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 562874,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      184,
+      197,
+      932,
+      1527
+    ],
+    "transparentPixelFraction": 0.8655,
+    "partiallyTransparentPixelFraction": 0.0068,
+    "headers": "HTTP/2 200 \nserver: Tengine\ncontent-type: image/png\ncontent-length: 562874\ndate: Mon, 03 Aug 2026 16:01:44 GMT\nx-oss-request-id: 6A70BB681775543830FAE11D\nx-oss-cdn-auth: success\naccept-ranges: bytes\netag: \"0C562EDF4598732249FC416974235F6C\"\nlast-modified: Tue, 21 May 2024 14:35:45 GMT\nx-oss-object-type: Normal\nx-oss-hash-crc64ecma: 16652525574918931869\nx-oss-storage-class: Standard\nx-oss-version-id: CAEQJRiBgIDe6Kju_BgiIDdiNzljZTAxZDU0ZDRjZjViYzRmZjBjZDY4ZjUyNDFh\ncontent-md5: DFYu30WYcyJJ/EFpdCNfbA==\nx-oss-server-time: 62\nvia: cache44.l2cn3059[0,29,200-0,H], cache5.l2cn3059[31,0], ens-cache18.cn7444[0,0,200-0,H], ens-cache12.cn7444[26,0]\nage: 6991912\nali-swift-global-savetime: 1785772904\nx-cache: HIT TCP_HIT dirn:11:657517652\nx-swift-savetime: Wed, 19 Aug 2026 07:22:14 GMT\nx-swift-cachetime: 91960770\ncache-control: max-age=31536000\naccess-control-allow-origin: *\ntiming-allow-origin: *\neagleid: dde72fa017927648166928310e\n\n",
+    "verifiedDate": "2026-10-23",
+    "method": "Full PNG download and Pillow decode, then visual inspection; not just image/info.",
+    "visualFindings": "Independent female full figure with clean silhouette, visible hair/clothing details and significant transparent margins. Full figure enables gender-specific ranking art.",
+    "realBrowserImgRender": "pass",
+    "httpStatus": 200,
+    "accessControlAllowOrigin": "*",
+    "canvasExport": "not separately tested for these additional high-resolution samples"
+  },
+  {
+    "id": "rover-male-team",
+    "name": "漂泊者-男-导电",
+    "file": "/private/tmp/quality-rover-male-team.png",
+    "url": "https://prod-alicdn-community.kurobbs.com/forum/10ebeddd2cfe4a54a8dcd673832ed49920240521.png",
+    "sourcePage": "https://wiki.kurobbs.com/mc/item/1524702371185848320",
+    "sourceLabel": "编队立绘",
+    "width": 1129,
+    "height": 1654,
+    "mode": "RGBA",
+    "format": "PNG",
+    "bytes": 706719,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "nonZeroAlphaBounds": [
+      124,
+      134,
+      885,
+      1577
+    ],
+    "transparentPixelFraction": 0.8385,
+    "partiallyTransparentPixelFraction": 0.0063,
+    "headers": "HTTP/2 200 \nserver: Tengine\ncontent-type: image/png\ncontent-length: 706719\ndate: Sun, 16 Aug 2026 15:46:17 GMT\nx-oss-request-id: 6A81DB496E4D9B3732CEEC86\nx-oss-cdn-auth: success\naccept-ranges: bytes\netag: \"8179D32996A53615DD002A9F8033550E\"\nlast-modified: Tue, 21 May 2024 14:35:14 GMT\nx-oss-object-type: Normal\nx-oss-hash-crc64ecma: 14138037224022832971\nx-oss-storage-class: Standard\nx-oss-version-id: CAEQJRiBgMDV7qfu_BgiIDFkMGMyZmJkNGU2YzRjMWVhYWEyN2Y2MTE0MWZhZjky\ncontent-md5: gXnTKZalNhXdACqfgDNVDg==\nx-oss-server-time: 35\nvia: cache64.l2cn9466[0,0,200-0,H], cache67.l2cn9466[2,0], ens-cache10.cn6310[0,2,200-0,H], ens-cache30.cn6310[7,0]\nage: 5869647\nali-swift-global-savetime: 1786895177\nx-cache: HIT TCP_HIT dirn:8:48598781\nx-swift-savetime: Fri, 18 Sep 2026 14:42:15 GMT\nx-swift-cachetime: 90464642\ncache-control: max-age=31536000\naccess-control-allow-origin: *\ntiming-allow-origin: *\neagleid: dde7513217927648240561226e\n\n",
+    "verifiedDate": "2026-10-23",
+    "method": "Full PNG download and Pillow decode, then visual inspection; not just image/info.",
+    "visualFindings": "Independent male full figure with clean silhouette, visible hair/clothing details and significant transparent margins. Full figure enables gender-specific ranking art.",
+    "realBrowserImgRender": "pass",
+    "httpStatus": 200,
+    "accessControlAllowOrigin": "*",
+    "canvasExport": "not separately tested for these additional high-resolution samples"
+  }
+]

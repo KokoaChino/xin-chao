@@ -1,0 +1,1419 @@
+{
+  "verifiedOn": "2026-10-23",
+  "timezone": "Asia/Shanghai",
+  "scope": "Anonymous read-only, one catalogue tree, two pagination probes, three character details. No login, cookies, tokens, Authorization, credential files or browser state. No write endpoints.",
+  "requests": [
+    {
+      "method": "POST",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/config/getTree",
+      "formBody": "",
+      "requestHeaders": {
+        "wiki_type": "9",
+        "source": "wiki",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "curlConfigDisabled": true,
+      "sentCredentialHeaders": false,
+      "usedBrowserSession": false,
+      "responseHeaders": [
+        "HTTP/1.1 200 OK",
+        "cache-control: no-cache, no-store, max-age=0, must-revalidate",
+        "content-type: application/json",
+        "date: Fri, 23 Oct 2026 14:57:52 GMT"
+      ],
+      "httpStatus": 200,
+      "businessCode": 200,
+      "success": true,
+      "message": "操作成功"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getPage",
+      "formBody": "catalogueId=1105&page=1&limit=5",
+      "requestHeaders": {
+        "wiki_type": "9",
+        "source": "wiki",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "curlConfigDisabled": true,
+      "sentCredentialHeaders": false,
+      "usedBrowserSession": false,
+      "responseHeaders": [
+        "HTTP/1.1 200 OK",
+        "cache-control: no-cache, no-store, max-age=0, must-revalidate",
+        "content-type: application/json",
+        "date: Fri, 23 Oct 2026 14:58:30 GMT"
+      ],
+      "httpStatus": 200,
+      "businessCode": 200,
+      "success": true,
+      "message": "操作成功"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getPage",
+      "formBody": "catalogueId=1105&page=2&limit=5",
+      "requestHeaders": {
+        "wiki_type": "9",
+        "source": "wiki",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "curlConfigDisabled": true,
+      "sentCredentialHeaders": false,
+      "usedBrowserSession": false,
+      "responseHeaders": [
+        "HTTP/1.1 200 OK",
+        "cache-control: no-cache, no-store, max-age=0, must-revalidate",
+        "content-type: application/json",
+        "date: Fri, 23 Oct 2026 14:58:30 GMT"
+      ],
+      "httpStatus": 200,
+      "businessCode": 200,
+      "success": true,
+      "message": "操作成功"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getEntryDetail",
+      "formBody": "id=1249040336606580736",
+      "requestHeaders": {
+        "wiki_type": "9",
+        "source": "wiki",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "curlConfigDisabled": true,
+      "sentCredentialHeaders": false,
+      "usedBrowserSession": false,
+      "responseHeaders": [
+        "HTTP/1.1 200 OK",
+        "cache-control: no-cache, no-store, max-age=0, must-revalidate",
+        "content-type: application/json",
+        "date: Fri, 23 Oct 2026 14:59:36 GMT"
+      ],
+      "httpStatus": 200,
+      "businessCode": 200,
+      "success": true,
+      "message": "操作成功"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getEntryDetail",
+      "formBody": "id=1543075487722901504",
+      "requestHeaders": {
+        "wiki_type": "9",
+        "source": "wiki",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "curlConfigDisabled": true,
+      "sentCredentialHeaders": false,
+      "usedBrowserSession": false,
+      "responseHeaders": [
+        "HTTP/1.1 200 OK",
+        "cache-control: no-cache, no-store, max-age=0, must-revalidate",
+        "content-type: application/json",
+        "date: Fri, 23 Oct 2026 14:59:27 GMT"
+      ],
+      "httpStatus": 200,
+      "businessCode": 200,
+      "success": true,
+      "message": "操作成功"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.kurobbs.com/wiki/core/catalogue/item/getEntryDetail",
+      "formBody": "id=1309607355563974656",
+      "requestHeaders": {
+        "wiki_type": "9",
+        "source": "wiki",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "curlConfigDisabled": true,
+      "sentCredentialHeaders": false,
+      "usedBrowserSession": false,
+      "responseHeaders": [
+        "HTTP/1.1 200 OK",
+        "cache-control: no-cache, no-store, max-age=0, must-revalidate",
+        "content-type: application/json",
+        "date: Fri, 23 Oct 2026 14:59:31 GMT"
+      ],
+      "httpStatus": 200,
+      "businessCode": 200,
+      "success": true,
+      "message": "操作成功"
+    }
+  ],
+  "tree": {
+    "nodeCount": 182,
+    "rootCatalogPageVersion": "403.0",
+    "rootCatalogPageVersionOnline": "403.0",
+    "selectedPaths": [
+      {
+        "path": [
+          "全部",
+          "游戏图鉴",
+          "共鸣者"
+        ],
+        "id": "1105",
+        "name": "共鸣者"
+      },
+      {
+        "path": [
+          "全部",
+          "游戏图鉴",
+          "头像"
+        ],
+        "id": "1363",
+        "name": "头像"
+      }
+    ]
+  },
+  "pagination": [
+    {
+      "probe": "page1",
+      "requestedLimit": 5,
+      "current": 1,
+      "size": 1000,
+      "total": 65,
+      "pages": 1,
+      "recordCount": 65,
+      "entryIds": [
+        "1543075487722901504",
+        "1514097978770092032",
+        "1445377391854534656",
+        "1559521973715369984",
+        "1543050481616060416",
+        "1536352499213860864",
+        "1536353668409655296",
+        "1519669262123954176",
+        "1519669180526559232",
+        "1524702668029300736",
+        "1524702371185848320",
+        "1502669582481317888",
+        "1502681773647212544",
+        "1488852222116831232",
+        "1488853937364017152",
+        "1478089902761410560",
+        "1457750329618771968",
+        "1457744312692867072",
+        "1429461088674648064",
+        "1429457793942482944",
+        "1415139197615755264",
+        "1415137052791296000",
+        "1400453856120164352",
+        "1400451112145264640",
+        "1386685588185022464",
+        "1370474602963382272",
+        "1357568005112766464",
+        "1370471621924728832",
+        "1309607355563974656",
+        "1342471419668557824",
+        "1309523456688947200",
+        "1309566040441675776",
+        "1328404385305366528",
+        "1321977849344999424",
+        "1302065018502307840",
+        "1286814658335739904",
+        "1272626941409398784",
+        "1269802618305703936",
+        "1262882649069621248",
+        "1249040336606580736",
+        "1239319812692709376",
+        "1240073643014045696",
+        "1353293318050545664",
+        "1353291691268767744",
+        "1242295527595823104",
+        "1242295483584421888",
+        "1242296163679776768",
+        "1242295554161025024",
+        "1242296125975633920",
+        "1239724074505539584",
+        "1242294789908504576",
+        "1242115703531454464",
+        "1242103196649603072",
+        "1429461100965666816",
+        "1312376371368607744",
+        "1233436648562032640",
+        "1287721354505175040",
+        "1233429754977792000",
+        "1240039812638883840",
+        "1233492733107564544",
+        "1233210783276019712",
+        "1233430505140629504",
+        "1240157802556833792",
+        "1239990507047161856",
+        "1240051046261592064"
+      ],
+      "uniqueEntryCount": 65
+    },
+    {
+      "probe": "page2",
+      "requestedLimit": 5,
+      "current": 2,
+      "size": 1000,
+      "total": 65,
+      "pages": 1,
+      "recordCount": 0,
+      "entryIds": [],
+      "uniqueEntryCount": 0
+    }
+  ],
+  "catalogue": {
+    "catalogPageVersion": "199.0",
+    "catalogPageVersionOnline": "199.0",
+    "recordKeys": [
+      "id",
+      "name",
+      "sort",
+      "content",
+      "entryId",
+      "invalid",
+      "invalidEntryIds",
+      "wikiPostList"
+    ],
+    "contentHasUpdateAt": true,
+    "warning": "content.updateAt is a card field; it is not verified as an entry-content change cursor. Catalogue version semantics are not documented."
+  },
+  "details": [
+    {
+      "id": "1249040336606580736",
+      "name": "今汐",
+      "sourcePage": "https://wiki.kurobbs.com/mc/item/1249040336606580736",
+      "currentVersion": "60.0",
+      "onlineVersion": "60.0",
+      "lastUpdateTime": "2025-12-29",
+      "catalogueContentUpdateAt": 1787173488086,
+      "catalogueContentUpdateAtIfUnixMilliseconds": "2026-08-20T05:04:48.086000+08:00",
+      "responseByteLength": 328948,
+      "modules": [
+        {
+          "title": "基础资料",
+          "components": [
+            {
+              "title": "角色组件",
+              "type": "role-component"
+            },
+            {
+              "title": "其他信息",
+              "type": "basic-component"
+            },
+            {
+              "title": "角色统计",
+              "type": "tabs-component"
+            },
+            {
+              "title": "战斗风格",
+              "type": "basic-component"
+            },
+            {
+              "title": "角色皮肤",
+              "type": "tabs-component"
+            },
+            {
+              "title": "皮肤立绘",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色养成",
+          "components": [
+            {
+              "title": "技能介绍",
+              "type": "tabs-component"
+            },
+            {
+              "title": "共鸣链",
+              "type": "basic-component"
+            },
+            {
+              "title": "角色突破材料",
+              "type": "tabs-component"
+            },
+            {
+              "title": "技能突破材料",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色养成推荐",
+          "components": [
+            {
+              "title": "纯文本组件",
+              "type": "text-component"
+            },
+            {
+              "title": "角色养成推荐",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色档案",
+          "components": [
+            {
+              "title": "检验鉴定",
+              "type": "basic-component"
+            },
+            {
+              "title": "珍贵之物",
+              "type": "tabs-component"
+            },
+            {
+              "title": "角色故事",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色语音",
+          "components": [
+            {
+              "title": "个性语音",
+              "type": "audio-component"
+            },
+            {
+              "title": "战斗语音",
+              "type": "audio-component"
+            }
+          ]
+        }
+      ],
+      "audio": [
+        {
+          "title": "个性语音",
+          "path": "data.content.modules[].components[].mediaTabs[]",
+          "languages": [
+            {
+              "label": "中文：江月",
+              "rowCount": 31,
+              "playableUrlCount": 31,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": {
+                "id": "1310723212345139200",
+                "audioTitle": "心声1",
+                "playUrl": "https://web-static.kurobbs.com/wiki_audio/1732542365802829460.wav",
+                "fileSize": 1566858
+              }
+            },
+            {
+              "label": "日文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "英文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "韩文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            }
+          ]
+        },
+        {
+          "title": "战斗语音",
+          "path": "data.content.modules[].components[].mediaTabs[]",
+          "languages": [
+            {
+              "label": "中文：江月",
+              "rowCount": 43,
+              "playableUrlCount": 43,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": {
+                "id": "1310723087732367360",
+                "audioTitle": "重击1",
+                "playUrl": "https://web-static.kurobbs.com/wiki_audio/1732542336144409400.wav",
+                "fileSize": 187594
+              }
+            },
+            {
+              "label": "日文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "英文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "韩文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            }
+          ]
+        }
+      ],
+      "skins": [
+        {
+          "title": "角色皮肤",
+          "type": "tabs-component",
+          "tabs": [
+            {
+              "title": "桃夭灼灼",
+              "format": "html-string",
+              "length": 1593,
+              "textChars": 194,
+              "imageCount": 2,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        },
+        {
+          "title": "皮肤立绘",
+          "type": "tabs-component",
+          "tabs": [
+            {
+              "title": "桃夭灼灼",
+              "format": "html-string",
+              "length": 500,
+              "textChars": 6,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        }
+      ],
+      "archive": [
+        {
+          "title": "检验鉴定",
+          "type": "basic-component",
+          "content": {
+            "format": "html-string",
+            "length": 1053,
+            "textChars": 373,
+            "imageCount": 0,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": []
+        },
+        {
+          "title": "珍贵之物",
+          "type": "tabs-component",
+          "content": {
+            "format": "html-string",
+            "length": 393,
+            "textChars": 109,
+            "imageCount": 1,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": [
+            {
+              "title": "小龙包",
+              "format": "html-string",
+              "length": 393,
+              "textChars": 109,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "待办清单",
+              "format": "html-string",
+              "length": 400,
+              "textChars": 151,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "龙鳞",
+              "format": "html-string",
+              "length": 350,
+              "textChars": 115,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "特殊料理",
+              "format": "html-string",
+              "length": 495,
+              "textChars": 143,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        },
+        {
+          "title": "角色故事",
+          "type": "tabs-component",
+          "content": {
+            "format": "html-string",
+            "length": 928,
+            "textChars": 637,
+            "imageCount": 0,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": [
+            {
+              "title": "令尹之名",
+              "format": "html-string",
+              "length": 928,
+              "textChars": 637,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "许愿之俗",
+              "format": "html-string",
+              "length": 1613,
+              "textChars": 1124,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "暖心之举",
+              "format": "html-string",
+              "length": 963,
+              "textChars": 782,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "难见之怒",
+              "format": "html-string",
+              "length": 1632,
+              "textChars": 1154,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "在意之人",
+              "format": "html-string",
+              "length": 1214,
+              "textChars": 889,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1543075487722901504",
+      "name": "锁暝",
+      "sourcePage": "https://wiki.kurobbs.com/mc/item/1543075487722901504",
+      "currentVersion": "22.0",
+      "onlineVersion": "22.0",
+      "lastUpdateTime": "2026-10-22",
+      "catalogueContentUpdateAt": 1792635794759,
+      "catalogueContentUpdateAtIfUnixMilliseconds": "2026-10-22T10:23:14.759000+08:00",
+      "responseByteLength": 335668,
+      "modules": [
+        {
+          "title": "基础资料",
+          "components": [
+            {
+              "title": "角色组件",
+              "type": "role-component"
+            },
+            {
+              "title": "其他信息",
+              "type": "basic-component"
+            },
+            {
+              "title": "角色统计",
+              "type": "tabs-component"
+            },
+            {
+              "title": "战斗风格",
+              "type": "basic-component"
+            }
+          ]
+        },
+        {
+          "title": "角色养成",
+          "components": [
+            {
+              "title": "技能介绍",
+              "type": "tabs-component"
+            },
+            {
+              "title": "共鸣链",
+              "type": "basic-component"
+            },
+            {
+              "title": "角色突破材料",
+              "type": "tabs-component"
+            },
+            {
+              "title": "技能突破材料",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色攻略",
+          "components": [
+            {
+              "title": "纯文本组件",
+              "type": "text-component"
+            }
+          ]
+        },
+        {
+          "title": "角色档案",
+          "components": [
+            {
+              "title": "共鸣能力鉴定报告6hz",
+              "type": "basic-component"
+            },
+            {
+              "title": "珍贵之物",
+              "type": "tabs-component"
+            },
+            {
+              "title": "角色故事",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色语音",
+          "components": [
+            {
+              "title": "个性语音",
+              "type": "audio-component"
+            },
+            {
+              "title": "战斗语音",
+              "type": "audio-component"
+            }
+          ]
+        }
+      ],
+      "audio": [
+        {
+          "title": "个性语音",
+          "path": "data.content.modules[].components[].mediaTabs[]",
+          "languages": [
+            {
+              "label": "中文：葛子瑞",
+              "rowCount": 30,
+              "playableUrlCount": 30,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": {
+                "id": "1562518788388986880",
+                "audioTitle": "心声1",
+                "playUrl": "https://web-static.kurobbs.com/wiki_audio/1792575109250191263.wav",
+                "fileSize": 3270906
+              }
+            },
+            {
+              "label": "日文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "英文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "韩文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            }
+          ]
+        },
+        {
+          "title": "战斗语音",
+          "path": "data.content.modules[].components[].mediaTabs[]",
+          "languages": [
+            {
+              "label": "中文：葛子瑞",
+              "rowCount": 41,
+              "playableUrlCount": 41,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": {
+                "id": "1562518778755072000",
+                "audioTitle": "普攻1",
+                "playUrl": "https://web-static.kurobbs.com/wiki_audio/1792575107005611922.wav",
+                "fileSize": 148776
+              }
+            },
+            {
+              "label": "日文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "英文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "韩文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            }
+          ]
+        }
+      ],
+      "skins": [],
+      "archive": [
+        {
+          "title": "共鸣能力鉴定报告6hz",
+          "type": "basic-component",
+          "content": {
+            "format": "html-string",
+            "length": 2666,
+            "textChars": 661,
+            "imageCount": 0,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": []
+        },
+        {
+          "title": "珍贵之物",
+          "type": "tabs-component",
+          "content": {
+            "format": "html-string",
+            "length": 545,
+            "textChars": 184,
+            "imageCount": 1,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": [
+            {
+              "title": "九方故影",
+              "format": "html-string",
+              "length": 545,
+              "textChars": 184,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "玄朱锁",
+              "format": "html-string",
+              "length": 609,
+              "textChars": 201,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "绾绣珑",
+              "format": "html-string",
+              "length": 639,
+              "textChars": 233,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "特殊料理",
+              "format": "html-string",
+              "length": 659,
+              "textChars": 250,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        },
+        {
+          "title": "角色故事",
+          "type": "tabs-component",
+          "content": {
+            "format": "html-string",
+            "length": 1164,
+            "textChars": 728,
+            "imageCount": 0,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": [
+            {
+              "title": "归城",
+              "format": "html-string",
+              "length": 1164,
+              "textChars": 728,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "聚契",
+              "format": "html-string",
+              "length": 1364,
+              "textChars": 882,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "执伞",
+              "format": "html-string",
+              "length": 1728,
+              "textChars": 827,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "定策",
+              "format": "html-string",
+              "length": 1172,
+              "textChars": 797,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "寄心",
+              "format": "html-string",
+              "length": 1486,
+              "textChars": 625,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1309607355563974656",
+      "name": "赞妮",
+      "sourcePage": "https://wiki.kurobbs.com/mc/item/1309607355563974656",
+      "currentVersion": "22.0",
+      "onlineVersion": "22.0",
+      "lastUpdateTime": "2026-04-29",
+      "catalogueContentUpdateAt": 1791515312018,
+      "catalogueContentUpdateAtIfUnixMilliseconds": "2026-10-09T11:08:32.018000+08:00",
+      "responseByteLength": 345021,
+      "modules": [
+        {
+          "title": "基础资料",
+          "components": [
+            {
+              "title": "角色组件",
+              "type": "role-component"
+            },
+            {
+              "title": "其他信息",
+              "type": "basic-component"
+            },
+            {
+              "title": "角色统计",
+              "type": "tabs-component"
+            },
+            {
+              "title": "战斗风格",
+              "type": "basic-component"
+            },
+            {
+              "title": "角色皮肤",
+              "type": "tabs-component"
+            },
+            {
+              "title": "皮肤立绘",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色养成",
+          "components": [
+            {
+              "title": "技能介绍",
+              "type": "tabs-component"
+            },
+            {
+              "title": "共鸣链",
+              "type": "basic-component"
+            },
+            {
+              "title": "角色突破材料",
+              "type": "tabs-component"
+            },
+            {
+              "title": "技能突破材料",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色攻略",
+          "components": [
+            {
+              "title": "纯文本组件",
+              "type": "text-component"
+            }
+          ]
+        },
+        {
+          "title": "角色档案",
+          "components": [
+            {
+              "title": "共鸣能力鉴定报告",
+              "type": "basic-component"
+            },
+            {
+              "title": "珍贵之物",
+              "type": "tabs-component"
+            },
+            {
+              "title": "角色故事",
+              "type": "tabs-component"
+            }
+          ]
+        },
+        {
+          "title": "角色语音",
+          "components": [
+            {
+              "title": "个性语音",
+              "type": "audio-component"
+            },
+            {
+              "title": "战斗语音",
+              "type": "audio-component"
+            }
+          ]
+        }
+      ],
+      "audio": [
+        {
+          "title": "个性语音",
+          "path": "data.content.modules[].components[].mediaTabs[]",
+          "languages": [
+            {
+              "label": "中文：聂曦映",
+              "rowCount": 31,
+              "playableUrlCount": 31,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": {
+                "id": "1371622822216486912",
+                "audioTitle": "心声1",
+                "playUrl": "https://web-static.kurobbs.com/wiki_audio/1747061964234952639.wav",
+                "fileSize": 3675356
+              }
+            },
+            {
+              "label": "日文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "英文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "韩文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            }
+          ]
+        },
+        {
+          "title": "战斗语音",
+          "path": "data.content.modules[].components[].mediaTabs[]",
+          "languages": [
+            {
+              "label": "中文：聂曦映",
+              "rowCount": 39,
+              "playableUrlCount": 39,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": {
+                "id": "1371921015496749056",
+                "audioTitle": "普攻1",
+                "playUrl": "https://web-static.kurobbs.com/wiki_audio/1747133059120334073.wav",
+                "fileSize": 449314
+              }
+            },
+            {
+              "label": "日文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "英文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            },
+            {
+              "label": "韩文：敬请期待",
+              "rowCount": 0,
+              "playableUrlCount": 0,
+              "safeItemKeys": [
+                "id",
+                "audioTitle",
+                "content",
+                "playUrl",
+                "fileSize"
+              ],
+              "sample": null
+            }
+          ]
+        }
+      ],
+      "skins": [
+        {
+          "title": "角色皮肤",
+          "type": "tabs-component",
+          "tabs": [
+            {
+              "title": "城市午茶",
+              "format": "html-string",
+              "length": 1405,
+              "textChars": 207,
+              "imageCount": 2,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        },
+        {
+          "title": "皮肤立绘",
+          "type": "tabs-component",
+          "tabs": [
+            {
+              "title": "城市午茶",
+              "format": "html-string",
+              "length": 500,
+              "textChars": 6,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        }
+      ],
+      "archive": [
+        {
+          "title": "共鸣能力鉴定报告",
+          "type": "basic-component",
+          "content": {
+            "format": "html-string",
+            "length": 1751,
+            "textChars": 795,
+            "imageCount": 0,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": []
+        },
+        {
+          "title": "珍贵之物",
+          "type": "tabs-component",
+          "content": {
+            "format": "html-string",
+            "length": 633,
+            "textChars": 211,
+            "imageCount": 1,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": [
+            {
+              "title": "个人备忘录",
+              "format": "html-string",
+              "length": 633,
+              "textChars": 211,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "“时间管理大师”",
+              "format": "html-string",
+              "length": 656,
+              "textChars": 262,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "一份谢礼",
+              "format": "html-string",
+              "length": 681,
+              "textChars": 287,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "特殊料理",
+              "format": "html-string",
+              "length": 750,
+              "textChars": 169,
+              "imageCount": 1,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        },
+        {
+          "title": "角色故事",
+          "type": "tabs-component",
+          "content": {
+            "format": "html-string",
+            "length": 1535,
+            "textChars": 913,
+            "imageCount": 0,
+            "audioCount": 0,
+            "videoCount": 0
+          },
+          "tabs": [
+            {
+              "title": "“常客”",
+              "format": "html-string",
+              "length": 1535,
+              "textChars": 913,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "焰光之影",
+              "format": "html-string",
+              "length": 1866,
+              "textChars": 1379,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "最佳员工",
+              "format": "html-string",
+              "length": 1788,
+              "textChars": 1247,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "暗夜独行",
+              "format": "html-string",
+              "length": 1814,
+              "textChars": 1287,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            },
+            {
+              "title": "狂欢前夕",
+              "format": "html-string",
+              "length": 1249,
+              "textChars": 916,
+              "imageCount": 0,
+              "audioCount": 0,
+              "videoCount": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "publicClientObservation": {
+    "scriptUrl": "https://wiki.kurobbs.com/resource/wiki/prod/assets/index-cb566e5b.js",
+    "catalogueRequestFields": {
+      "catalogueId": "selected catalogue ID",
+      "page": 1,
+      "limit": 1000
+    },
+    "transformRequestParamsRenamesPaginationFields": false,
+    "smallPageSizeParameterConfirmed": false
+  },
+  "limitations": [
+    "Single-day samples cannot prove future anonymous access or undocumented revision semantics.",
+    "Only three characters were inspected for voice-language coverage; other characters may differ.",
+    "Audio links were present; this probe did not fetch or play the audio files.",
+    "No successful small-page pagination parameter was established; limit=5 returned size=1000.",
+    "No source change occurred during testing, so monotonicity or completeness of version fields is unproven.",
+    "Contributor names and identifiers, user-score data, and full narrative prose are deliberately excluded from saved evidence."
+  ]
+}
