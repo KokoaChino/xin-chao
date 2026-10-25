@@ -1,0 +1,142 @@
+[
+  {
+    "targetWidth": 1920,
+    "attempts": [
+      1920
+    ],
+    "width": 1920,
+    "height": 56825,
+    "decoded": [
+      1920,
+      56825
+    ],
+    "bytes": 105316516,
+    "previewWidth": 1920,
+    "previewLastWidth": 1920,
+    "previewCount": 56,
+    "maxCanvasHeight": 1024,
+    "allSurfacesReleased": true,
+    "first": true,
+    "last": true,
+    "progress": {
+      "done": 100,
+      "total": 100,
+      "width": 1920
+    },
+    "seconds": 104.5
+  },
+  {
+    "targetWidth": 1600,
+    "attempts": [
+      1920,
+      1600
+    ],
+    "width": 1600,
+    "height": 47355,
+    "decoded": [
+      1600,
+      47355
+    ],
+    "bytes": 76453829,
+    "previewWidth": 1600,
+    "previewLastWidth": 1600,
+    "previewCount": 47,
+    "maxCanvasHeight": 1024,
+    "allSurfacesReleased": true,
+    "first": true,
+    "last": true,
+    "progress": {
+      "done": 100,
+      "total": 100,
+      "width": 1600
+    },
+    "seconds": 68.86
+  },
+  {
+    "targetWidth": 1280,
+    "attempts": [
+      1920,
+      1600,
+      1280
+    ],
+    "width": 1280,
+    "height": 37884,
+    "decoded": [
+      1280,
+      37884
+    ],
+    "bytes": 52095379,
+    "previewWidth": 1280,
+    "previewLastWidth": 1280,
+    "previewCount": 37,
+    "maxCanvasHeight": 1024,
+    "allSurfacesReleased": true,
+    "first": true,
+    "last": true,
+    "progress": {
+      "done": 100,
+      "total": 100,
+      "width": 1280
+    },
+    "seconds": 43.26
+  },
+  {
+    "targetWidth": 1080,
+    "attempts": [
+      1920,
+      1600,
+      1280,
+      1080
+    ],
+    "width": 1080,
+    "height": 31964,
+    "decoded": [
+      1080,
+      31964
+    ],
+    "bytes": 38229113,
+    "previewWidth": 1080,
+    "previewLastWidth": 1080,
+    "previewCount": 32,
+    "maxCanvasHeight": 1024,
+    "allSurfacesReleased": true,
+    "first": true,
+    "last": true,
+    "progress": {
+      "done": 100,
+      "total": 100,
+      "width": 1080
+    },
+    "seconds": 4.71
+  },
+  {
+    "targetWidth": 720,
+    "attempts": [
+      1920,
+      1600,
+      1280,
+      1080,
+      720
+    ],
+    "width": 720,
+    "height": 21310,
+    "decoded": [
+      720,
+      21310
+    ],
+    "bytes": 18648070,
+    "previewWidth": 720,
+    "previewLastWidth": 720,
+    "previewCount": 21,
+    "maxCanvasHeight": 1024,
+    "allSurfacesReleased": true,
+    "first": true,
+    "last": true,
+    "progress": {
+      "done": 100,
+      "total": 100,
+      "width": 720
+    },
+    "seconds": 33.62
+  }
+]

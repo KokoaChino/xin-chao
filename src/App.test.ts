@@ -38,7 +38,7 @@ function deferred<T>() {
 }
 
 function posterResult(blob = new Blob(['poster']), previews = [blob]): RankingPoster {
-  return { blob, previews: previews.map(blob => ({ blob, width: 540, height: 512 })), width: 1080, height: 19000 };
+  return { blob, previews: previews.map(blob => ({ blob, width: 960, height: 512 })), width: 1920, height: 56825 };
 }
 
 describe('海报生成会话', () => {
@@ -102,6 +102,7 @@ describe('海报生成会话', () => {
     expect(createRankingPoster).toHaveBeenCalledTimes(1);
     await act(async () => vi.mocked(createRankingPoster).mock.calls[0][2]!(1, 1));
     expect(button.textContent).toContain('1/1');
+    expect(container.querySelector('.poster-loading p')?.textContent).toBe('正在生成预览 1/1');
     const blob = new Blob(['current']);
     await act(async () => task.resolve(posterResult(blob)));
     expect(downloadBlob).not.toHaveBeenCalled();
@@ -162,6 +163,8 @@ describe('海报生成会话', () => {
     expect(container.querySelectorAll('.poster-preview')).toHaveLength(1);
     expect(container.querySelectorAll('.poster-preview img')).toHaveLength(2);
     expect(container.querySelector('.poster-preview img')?.getAttribute('height')).toBe('512');
+    expect(container.querySelector('.poster-preview img')?.getAttribute('width')).toBe('960');
+    expect(container.querySelector('.poster-resolution')?.textContent).toContain('1920 × 56825');
     expect(container.querySelectorAll('.poster-pages .full-button')).toHaveLength(1);
     expect(downloadBlob).not.toHaveBeenCalled();
     await clickText('下载海报');
@@ -169,6 +172,16 @@ describe('海报生成会话', () => {
     const urls = vi.mocked(URL.createObjectURL).mock.results.map(result => result.value);
     await act(async () => container.querySelector<HTMLButtonElement>('[aria-label="关闭弹窗"]')!.click());
     expect(urls.every(url => vi.mocked(URL.revokeObjectURL).mock.calls.some(call => call[0] === url))).toBe(true);
+  });
+
+  it('自动降档后显示实际分辨率，下载仍是同一张完整图', async () => {
+    const blob = new Blob(['complete lower resolution poster']);
+    vi.mocked(createRankingPoster).mockResolvedValue({ ...posterResult(blob), width: 1280, height: 37884 });
+    await render(); await clickText('分享海报');
+    expect(container.querySelector('.poster-resolution')?.textContent).toContain('1280 × 37884');
+    expect(container.querySelector('.poster-resolution')?.textContent).toContain('已自动调整清晰度');
+    await clickText('下载海报');
+    expect(downloadBlob).toHaveBeenCalledExactlyOnceWith(blob, '我的共鸣者XP排行榜.png');
   });
 
   it('卸载后才返回的生成任务不创建预览URL或触发下载', async () => {

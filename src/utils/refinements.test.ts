@@ -58,9 +58,11 @@ describe('常驻筛选', () => {
 });
 describe('固定单列海报', () => {
   it('不再接受布局参数，保留全部排名，检查空榜和异常数量', () => {
-    expect(posterLayout(58)).toMatchObject({ columns: 1, width: 1080, avatarSize: 230 });
+    expect(posterLayout(100)).toMatchObject({ columns: 1, width: 1920, logicalWidth: 1080, avatarSize: 230 });
+    expect(posterLayout(100).scale).toBeCloseTo(1920 / 1080);
     expect(() => posterLayout(0)).toThrow();
     expect(() => posterLayout(1.5)).toThrow();
+    expect(() => posterLayout(101)).toThrow('最多支持100位');
   });
   it('序号、头像和资料各占独立的水平空间，文字右边距始终留在卡片内', () => {
     const layout = posterLayout(58);

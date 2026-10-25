@@ -94,6 +94,7 @@ button,input,textarea,select{font:inherit;color:inherit}button{border:0;backgrou
 .poster-loading p { margin:0; }
 .poster-preview { background:#e6ecdf; overscroll-behavior:contain; }
 .poster-preview img { display:block; }
+.poster-resolution { margin:12px 0 0; color:#7d926d; font-size:11px; line-height:1.6; text-align:right; font-variant-numeric:tabular-nums; }
 .video-group+.video-group { margin-top:30px; }
 .video-group-heading { display:flex; align-items:baseline; gap:12px; font:500 18px/1.5 var(--font-display); color:#5b744c; margin:22px 0 14px; }
 .video-group-heading>span { font:10px var(--font-sans); color:#9aaa8b; }

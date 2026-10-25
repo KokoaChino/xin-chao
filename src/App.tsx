@@ -23,7 +23,7 @@ export default function App() {
   const [toast, setToast] = useState<{ message: string; id: number } | null>(null);
   const [importText, setImportText] = useState(''); const [importName, setImportName] = useState(''); const [importing, setImporting] = useState(false);
   const [exporting, setExporting] = useState(false); const [exportProgress, setExportProgress] = useState({ done: 0, total: 0 });
-  const [poster, setPoster] = useState<{ blob: Blob; previews: { url: string; width: number; height: number }[] } | null>(null);
+  const [poster, setPoster] = useState<{ blob: Blob; width: number; height: number; previews: { url: string; width: number; height: number }[] } | null>(null);
   const [exportTitle, setExportTitle] = useState(''); const [exportError, setExportError] = useState('');
   const uploadRef = useRef<HTMLInputElement>(null); const toastId = useRef(0); const exportJob = useRef(0); const exportBusy = useRef(false);
   const exportController = useRef<AbortController | null>(null);
@@ -86,7 +86,7 @@ export default function App() {
     try {
       const result = await createRankingPoster(rankedEntries, pref.preferences, (done, total) => { if (job === exportJob.current) setExportProgress({ done, total }); }, controller.signal);
       if (job !== exportJob.current) return;
-      setPoster({ blob: result.blob, previews: result.previews.map(preview => ({ url: URL.createObjectURL(preview.blob), width: preview.width, height: preview.height })) });
+      setPoster({ blob: result.blob, width: result.width, height: result.height, previews: result.previews.map(preview => ({ url: URL.createObjectURL(preview.blob), width: preview.width, height: preview.height })) });
     } catch (error) { if (job === exportJob.current) setExportError(error instanceof Error ? error.message : '海报生成失败。'); }
     finally { if (job === exportJob.current) { exportController.current = null; exportBusy.current = false; setExporting(false); } }
   };
@@ -123,6 +123,7 @@ export default function App() {
         <div className="poster-preview" tabIndex={0} role="region" aria-label={`${exportTitle}海报预览`}>
           {poster.previews.map((preview, index) => <img key={preview.url} src={preview.url} width={preview.width} height={preview.height} style={{ height: 'auto' }} alt={index === 0 ? `${exportTitle}海报预览` : ''} loading="lazy" />)}
         </div>
+        <p className="poster-resolution">{poster.width} × {poster.height} 像素{poster.width < 1920 ? ' · 已自动调整清晰度' : ''}</p>
         <button className="button button-dark full-button" onClick={() => downloadBlob(poster.blob, `${exportTitle}.png`)}><Download size={16} />下载海报</button>
       </div></div>}
     </Dialog>}
