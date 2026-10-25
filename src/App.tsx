@@ -23,9 +23,10 @@ export default function App() {
   const [toast, setToast] = useState<{ message: string; id: number } | null>(null);
   const [importText, setImportText] = useState(''); const [importName, setImportName] = useState(''); const [importing, setImporting] = useState(false);
   const [exporting, setExporting] = useState(false); const [exportProgress, setExportProgress] = useState({ done: 0, total: 0 });
-  const [exportPages, setExportPages] = useState<{ blob: Blob; url: string }[]>([]);
+  const [poster, setPoster] = useState<{ blob: Blob; previews: { url: string; width: number; height: number }[] } | null>(null);
   const [exportTitle, setExportTitle] = useState(''); const [exportError, setExportError] = useState('');
   const uploadRef = useRef<HTMLInputElement>(null); const toastId = useRef(0); const exportJob = useRef(0); const exportBusy = useRef(false);
+  const exportController = useRef<AbortController | null>(null);
   const entries = useMemo(() => groupRoster(catalog.characters, pref.preferences.selectedVariants), [catalog.characters, pref.preferences.selectedVariants]);
   const entryMap = useMemo(() => new Map(entries.map(entry => [entry.id, entry])), [entries]);
   const rankedEntries = useMemo(() => pref.preferences.order.map(id => entryMap.get(id)).filter((entry): entry is RosterEntry => Boolean(entry)), [pref.preferences.order, entryMap]);
@@ -36,8 +37,8 @@ export default function App() {
   const featured = entryMap.get(featuredId || '') || entries.find(entry => entry.character.name === '今汐') || entries[0];
   const showToast = useCallback((message: string) => setToast({ message, id: ++toastId.current }), []);
   useEffect(() => { if (!toast) return; const timer = window.setTimeout(() => setToast(null), 4000); return () => clearTimeout(timer); }, [toast]);
-  useEffect(() => () => { ++exportJob.current; exportBusy.current = false; }, []);
-  useEffect(() => () => { exportPages.forEach(page => URL.revokeObjectURL(page.url)); }, [exportPages]);
+  useEffect(() => () => { ++exportJob.current; exportBusy.current = false; exportController.current?.abort(); }, []);
+  useEffect(() => () => { poster?.previews.forEach(preview => URL.revokeObjectURL(preview.url)); }, [poster]);
   useEffect(() => { if (pref.error) showToast(pref.error); }, [pref.error, showToast]);
   const selectVariant = (identityId: string, variantId: string) => {
     const entry = entryMap.get(identityId);
@@ -73,19 +74,21 @@ export default function App() {
   };
   const closePoster = () => {
     ++exportJob.current; exportBusy.current = false;
-    setExporting(false); setExportPages([]); setExportError(''); setModal(null);
+    exportController.current?.abort(); exportController.current = null;
+    setExporting(false); setPoster(null); setExportError(''); setModal(null);
   };
   const createPoster = async () => {
     if (exportBusy.current || !rankedEntries.length) return;
     exportBusy.current = true; const job = ++exportJob.current;
-    setModal('poster'); setExportPages([]); setExportError(''); setExportTitle(title);
+    const controller = new AbortController(); exportController.current = controller;
+    setModal('poster'); setPoster(null); setExportError(''); setExportTitle(title);
     setExporting(true); setExportProgress({ done: 0, total: rankedEntries.length });
     try {
-      const blobs = await createRankingPoster(rankedEntries, pref.preferences, (done, total) => { if (job === exportJob.current) setExportProgress({ done, total }); });
+      const result = await createRankingPoster(rankedEntries, pref.preferences, (done, total) => { if (job === exportJob.current) setExportProgress({ done, total }); }, controller.signal);
       if (job !== exportJob.current) return;
-      setExportPages(blobs.map(blob => ({ blob, url: URL.createObjectURL(blob) })));
+      setPoster({ blob: result.blob, previews: result.previews.map(preview => ({ url: URL.createObjectURL(preview.blob), width: preview.width, height: preview.height })) });
     } catch (error) { if (job === exportJob.current) setExportError(error instanceof Error ? error.message : '海报生成失败。'); }
-    finally { if (job === exportJob.current) { exportBusy.current = false; setExporting(false); } }
+    finally { if (job === exportJob.current) { exportController.current = null; exportBusy.current = false; setExporting(false); } }
   };
   return <div className="app-shell">
     <a className="skip-link" href="#main-content">跳转到主要内容</a>
@@ -116,10 +119,12 @@ export default function App() {
     {modal === 'poster' && <Dialog title="海报预览" onClose={closePoster} className="export-dialog">
       {exporting && <div className="poster-loading" role="status"><LoaderCircle className="spin" size={25} /><p>正在生成预览 {exportProgress.done}/{exportProgress.total}</p></div>}
       {exportError && <><p className="inline-warning" role="alert">{exportError}</p><button className="button button-dark full-button" onClick={() => void createPoster()}>重新生成</button></>}
-      {!!exportPages.length && <div className="poster-pages">{exportPages.map((page, index) => <div key={page.url}>
-        <div className="poster-preview" tabIndex={0} role="region" aria-label={`海报预览${exportPages.length > 1 ? `第${index + 1}张` : ''}`}><img src={page.url} alt={`${exportTitle}海报${index + 1}`} /></div>
-        <button className="button button-dark full-button" onClick={() => downloadBlob(page.blob, `${exportTitle}${exportPages.length > 1 ? `-${index + 1}` : ''}.png`)}><Download size={16} />下载海报{exportPages.length > 1 ? ` ${index + 1}/${exportPages.length}` : ''}</button>
-      </div>)}</div>}
+      {poster && <div className="poster-pages"><div>
+        <div className="poster-preview" tabIndex={0} role="region" aria-label={`${exportTitle}海报预览`}>
+          {poster.previews.map((preview, index) => <img key={preview.url} src={preview.url} width={preview.width} height={preview.height} style={{ height: 'auto' }} alt={index === 0 ? `${exportTitle}海报预览` : ''} loading="lazy" />)}
+        </div>
+        <button className="button button-dark full-button" onClick={() => downloadBlob(poster.blob, `${exportTitle}.png`)}><Download size={16} />下载海报</button>
+      </div></div>}
     </Dialog>}
     {modal === 'videos' && <Dialog title="全部角色影像" onClose={() => setModal(null)} className="video-library-dialog"><OfficialVideos /></Dialog>}
     <input ref={uploadRef} className="visually-hidden" tabIndex={-1} type="file" accept=".json,application/json" aria-label="导入榜单文件" onChange={event => void readImport(event.target.files?.[0])} />

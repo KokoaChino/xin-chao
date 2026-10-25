@@ -6,7 +6,7 @@ import App from './App';
 import { useCatalog } from './hooks/useCatalog';
 import { usePreferences } from './hooks/usePreferences';
 import { createDefaultPreferences } from './data/preferences';
-import { createRankingPoster, downloadBlob } from './utils/poster';
+import { createRankingPoster, downloadBlob, type RankingPoster } from './utils/poster';
 import type { CharacterSummary, Preferences } from './types';
 
 vi.mock('./hooks/useCatalog', () => ({ useCatalog: vi.fn() }));
@@ -35,6 +35,10 @@ function deferred<T>() {
   let reject!: (reason: Error) => void;
   const promise = new Promise<T>((done, fail) => { resolve = done; reject = fail; });
   return { promise, resolve, reject };
+}
+
+function posterResult(blob = new Blob(['poster']), previews = [blob]): RankingPoster {
+  return { blob, previews: previews.map(blob => ({ blob, width: 540, height: 512 })), width: 1080, height: 19000 };
 }
 
 describe('海报生成会话', () => {
@@ -87,7 +91,7 @@ describe('海报生成会话', () => {
   }
 
   it('点击分享自动生成真实预览，确认点击下载后才下载；关闭时释放预览资源', async () => {
-    const task = deferred<Blob[]>();
+    const task = deferred<RankingPoster>();
     vi.mocked(createRankingPoster).mockReturnValue(task.promise);
     await render();
     await clickText('分享海报');
@@ -99,7 +103,7 @@ describe('海报生成会话', () => {
     await act(async () => vi.mocked(createRankingPoster).mock.calls[0][2]!(1, 1));
     expect(button.textContent).toContain('1/1');
     const blob = new Blob(['current']);
-    await act(async () => task.resolve([blob]));
+    await act(async () => task.resolve(posterResult(blob)));
     expect(downloadBlob).not.toHaveBeenCalled();
     const previewUrl = container.querySelector<HTMLImageElement>('.poster-preview img')?.getAttribute('src');
     expect(previewUrl).toMatch(/^blob:poster-/);
@@ -113,17 +117,19 @@ describe('海报生成会话', () => {
   });
 
   it.each(['resolve', 'reject'] as const)('关闭后的旧任务 %s 不会污染重新打开的预览或结束新任务', async (outcome) => {
-    const obsolete = deferred<Blob[]>(), current = deferred<Blob[]>();
+    const obsolete = deferred<RankingPoster>(), current = deferred<RankingPoster>();
     vi.mocked(createRankingPoster).mockReturnValueOnce(obsolete.promise).mockReturnValueOnce(current.promise);
     await render(); await clickText('分享海报');
     const oldProgress = vi.mocked(createRankingPoster).mock.calls[0][2]!;
+    const oldSignal = vi.mocked(createRankingPoster).mock.calls[0][3]!;
     await act(async () => container.querySelector<HTMLButtonElement>('[aria-label="关闭弹窗"]')!.click());
+    expect(oldSignal.aborted).toBe(true);
     preferences = { ...preferences, order: ['two', 'one'] };
     await render(); await clickText('分享海报');
     expect(vi.mocked(createRankingPoster).mock.calls[1][0].map(entry => entry.id)).toEqual(['two', 'one']);
     await act(async () => {
       vi.mocked(createRankingPoster).mock.calls[1][2]!(1, 2); oldProgress(99, 99);
-      if (outcome === 'resolve') obsolete.resolve([new Blob(['obsolete'])]);
+      if (outcome === 'resolve') obsolete.resolve(posterResult(new Blob(['obsolete'])));
       else obsolete.reject(new Error('obsolete failure'));
     });
     expect(downloadBlob).not.toHaveBeenCalled();
@@ -132,7 +138,7 @@ describe('海报生成会话', () => {
     expect(container.querySelector('.inline-warning')).toBeNull();
     expect(container.querySelector('.poster-preview')).toBeNull();
     const blob = new Blob(['current']);
-    await act(async () => current.resolve([blob]));
+    await act(async () => current.resolve(posterResult(blob)));
     expect(downloadBlob).not.toHaveBeenCalled();
     expect(URL.createObjectURL).toHaveBeenCalledExactlyOnceWith(blob);
     expect(container.querySelector('.poster-preview img')).not.toBeNull();
@@ -140,7 +146,7 @@ describe('海报生成会话', () => {
   });
 
   it('生成失败后恢复分享按钮并允许重试', async () => {
-    vi.mocked(createRankingPoster).mockRejectedValueOnce(new Error('素材加载失败')).mockResolvedValueOnce([new Blob(['retry'])]);
+    vi.mocked(createRankingPoster).mockRejectedValueOnce(new Error('素材加载失败')).mockResolvedValueOnce(posterResult(new Blob(['retry'])));
     await render(); await clickText('分享海报');
     expect(container.textContent).toContain('素材加载失败');
     await clickText('重新生成');
@@ -149,23 +155,31 @@ describe('海报生成会话', () => {
     expect(container.querySelector('.poster-preview img')).not.toBeNull();
   });
 
-  it('长榜多页均可预览与独立下载，并使用对应的文件名和图片', async () => {
-    const pages = [new Blob(['first']), new Blob(['second'])];
-    vi.mocked(createRankingPoster).mockResolvedValue(pages);
+  it('长图预览连续拼接多个轻量片段，下载始终只有一张完整PNG', async () => {
+    const blob = new Blob(['full-image']), previews = [new Blob(['top']), new Blob(['bottom'])];
+    vi.mocked(createRankingPoster).mockResolvedValue(posterResult(blob, previews));
     await render(); await clickText('分享海报');
+    expect(container.querySelectorAll('.poster-preview')).toHaveLength(1);
     expect(container.querySelectorAll('.poster-preview img')).toHaveLength(2);
+    expect(container.querySelector('.poster-preview img')?.getAttribute('height')).toBe('512');
+    expect(container.querySelectorAll('.poster-pages .full-button')).toHaveLength(1);
     expect(downloadBlob).not.toHaveBeenCalled();
-    await clickText('下载海报 2/2');
-    expect(downloadBlob).toHaveBeenCalledExactlyOnceWith(pages[1], '我的共鸣者XP排行榜-2.png');
+    await clickText('下载海报');
+    expect(downloadBlob).toHaveBeenCalledExactlyOnceWith(blob, '我的共鸣者XP排行榜.png');
+    const urls = vi.mocked(URL.createObjectURL).mock.results.map(result => result.value);
+    await act(async () => container.querySelector<HTMLButtonElement>('[aria-label="关闭弹窗"]')!.click());
+    expect(urls.every(url => vi.mocked(URL.revokeObjectURL).mock.calls.some(call => call[0] === url))).toBe(true);
   });
 
   it('卸载后才返回的生成任务不创建预览URL或触发下载', async () => {
-    const pending = deferred<Blob[]>();
+    const pending = deferred<RankingPoster>();
     vi.mocked(createRankingPoster).mockReturnValue(pending.promise);
     await render(); await clickText('分享海报');
+    const signal = vi.mocked(createRankingPoster).mock.calls[0][3]!;
     await act(async () => root.unmount());
+    expect(signal.aborted).toBe(true);
     root = createRoot(container);
-    await act(async () => pending.resolve([new Blob(['obsolete'])]));
+    await act(async () => pending.resolve(posterResult(new Blob(['obsolete']))));
     expect(URL.createObjectURL).not.toHaveBeenCalled();
     expect(downloadBlob).not.toHaveBeenCalled();
   });
